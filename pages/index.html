@@ -1,24 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Food</title>
-  </head>
-  <body>
-    <header class="header">
-      <a href="#">
-        <img src="logo.png" alt="Logo" class="logo" />
-      </a>
-
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li class="main-nav-list"><a href="#">Home</a></li>
-          <li class="main-nav-list"><a href="#">About</a></li>
-          <li class="main-nav-list"><a href="#">Services</a></li>
-          <li class="main-nav-list"><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - KDT</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+</head>
+<body>
+    <header id="header">
+        <img src="/images/logo.png" alt="KDT Logo" class="logo">
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="list.html">Foods</a>
+        </nav>
     </header>
-  </body>
+
+    <main>
+        <section>
+            <img src="/images/background.jpg" alt="back" class="food-image">
+            <div class="text-content">
+                <h2>Welcome to Our KDT-website</h2>
+                <p>
+                    We are delighted to welcome you to a place where tradition meets taste. 
+                    Our mission is to share the authentic flavors of Kazakh cuisine and preserve 
+                    the culinary heritage of our people. Here, you will discover timeless recipes, 
+                    learn about the history behind each dish, and experience the warm spirit of 
+                    hospitality that defines Kazakh culture.
+                </p>
+                <ul>
+                    <li><strong>Beshbarmak</strong> – the national dish of meat and noodles.</li>
+                    <li><strong>Baursaks</strong> – golden fried bread, perfect with tea.</li>
+                    <li><strong>Kumis</strong> – a refreshing drink made from fermented mare’s milk.</li>
+                </ul>
+                
+            </div>
+        </section>
+    </main>
+
+<footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img src="../images/logo.png" alt="Logo" class="logo" />
+          </a>
+
+          <ul class="social-links">
+            <li>
+              <a class="footer-link" href="https://www.instagram.com/"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="https://www.facebook.com"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="https://www.twitter.com"
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+          </ul>
+
+          <p class="copyright">
+            Copyright &copy; <span class="year">2027</span> by Kuizine, Inc. All
+            rights reserved.
+          </p>
+        </div>
+
+        <div class="about-nav">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              <a
+                class="footer-link"
+                href="https://2gis.kz/astana/geo/70030076130637840/71.417999%2C51.09098?m=71.417125%2C51.091268%2F16.49"
+                target="_blank"
+              >
+                Astana IT University<br />
+                Mangilik El Avenue, C1 ​Yesil district, Astana
+              </a>
+            </p>
+            <p class="address">
+              <a class="footer-link" href="tel:+77777777777" target="_blank">
+                8-777-777-7777
+              </a>
+              <br />
+              <a
+                class="footer-link"
+                href="mailto:kuizine@email.com"
+                target="_blank"
+              >
+                kuizine@email.com
+              </a>
+            </p>
+          </address>
+        </div>
+        <div class="team-col">
+          <p class="team-p">
+            Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
+          </p>
+        </div>
+      </div>
+    </footer>
+</body>
 </html>
