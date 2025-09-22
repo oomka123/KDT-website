@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - KDT</title>
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/index.css" />
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
@@ -13,40 +13,103 @@
       nomodule=""
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
-</head>
-<body>
+  </head>
+  <body>
     <header id="header">
-        <img src="/images/logo.png" alt="KDT Logo" class="logo">
-        <nav>
-            <a href="homepage.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="list.html">Foods</a>
-        </nav>
+      <img src="/images/logo.png" alt="KDT Logo" class="logo" />
+      <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="list.html">Foods</a>
+      </nav>
     </header>
 
     <main>
-        <section>
-            <img src="/images/background.jpg" alt="back" class="food-image">
-            <div class="text-content">
-                <h2>Welcome to Our KDT-website</h2>
-                <p>
-                    We are delighted to welcome you to a place where tradition meets taste. 
-                    Our mission is to share the authentic flavors of Kazakh cuisine and preserve 
-                    the culinary heritage of our people. Here, you will discover timeless recipes, 
-                    learn about the history behind each dish, and experience the warm spirit of 
-                    hospitality that defines Kazakh culture.
-                </p>
-                <ul>
-                    <li><strong>Beshbarmak</strong> – the national dish of meat and noodles.</li>
-                    <li><strong>Baursaks</strong> – golden fried bread, perfect with tea.</li>
-                    <li><strong>Kumis</strong> – a refreshing drink made from fermented mare’s milk.</li>
-                </ul>
-                
+      <section>
+        <img src="/images/background.jpg" alt="back" class="food-image" />
+        <div class="text-content">
+          <h2>Welcome to Our KDT-website</h2>
+          <p>
+            We are delighted to welcome you to a place where tradition meets
+            taste. Our mission is to share the authentic flavors of Kazakh
+            cuisine and preserve the culinary heritage of our people. Here, you
+            will discover timeless recipes, learn about the history behind each
+            dish, and experience the warm spirit of hospitality that defines
+            Kazakh culture.
+          </p>
+          <ul>
+            <li>
+              <strong>Beshbarmak</strong> – the national dish of meat and
+              noodles.
+            </li>
+            <li>
+              <strong>Baursaks</strong> – golden fried bread, perfect with tea.
+            </li>
+            <li>
+              <strong>Kumis</strong> – a refreshing drink made from fermented
+              mare’s milk.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-cta" id="cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <h2 class="heading-secondary">Taste Kazakhstan with us!</h2>
+              <p class="cta-text">
+                Authentic, flavorful and hassle-free Kazakh meals are waiting
+                for you. Discover the rich traditions of our cuisine today.
+              </p>
+
+              <form class="cta-form">
+                <div>
+                  <label for="full-name">Full Name</label>
+                  <input
+                    id="full-name"
+                    type="text"
+                    placeholder="John Smith"
+                    name="full-name"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="email">Email address</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="me@example.com"
+                    name="email"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="select-where">Where did you hear from us?</label>
+                  <select id="select-where" name="select-where" required>
+                    <option value="">Please choose one option:</option>
+                    <option value="friends">Friends and family</option>
+                    <option value="youtube">YouTube video</option>
+                    <option value="podcast">Podcast</option>
+                    <option value="ad">Facebook ad</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+
+                <button class="btn btn--form">Sign up now</button>
+
+                <!-- <input type="checkbox" />
+                <input type="number" /> -->
+              </form>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
-<footer class="footer">
+    <footer class="footer">
       <div class="container grid grid--footer">
         <div class="logo-col">
           <a href="#" class="footer-logo">
@@ -112,5 +175,5 @@
         </div>
       </div>
     </footer>
-</body>
+  </body>
 </html>
