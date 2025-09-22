@@ -136,6 +136,11 @@ main section {
   font-size: 1em;
   margin-left: 0.5rem;
 }
+
+.food-image {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .food-image:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
