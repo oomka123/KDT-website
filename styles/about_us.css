@@ -6,18 +6,25 @@
 
 /* HEADING */
 
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b3954;
+  padding: 1rem 2rem;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0b3954;
   padding: 0 24px;
-  /* margin-bottom: 156px; */
   border-bottom: 2px solid #eee;
 }
 
 nav {
-  background-color: var(--prussian-blue);
+  background-color: #0b3954;
   padding: 0.5rem 1rem;
 }
 
@@ -53,6 +60,10 @@ nav {
 .nav-link.nav-link-bor:hover,
 .nav-link.nav-link-bor:active {
   background-color: #1c435e;
+}
+
+.logo {
+  height: 54px;
 }
 
 /* ---------------- ABOUT US ----------------- */
@@ -226,10 +237,6 @@ nav {
   display: grid;
   column-gap: 64px;
   row-gap: 96px;
-}
-
-.logo {
-  height: 74px;
 }
 
 .footer {

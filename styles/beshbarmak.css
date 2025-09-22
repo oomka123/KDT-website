@@ -35,12 +35,25 @@ p {
   font-size: 1rem;
 }
 
+.logo {
+  height: 54px;
+}
+
 #header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--prussian-blue);
+  background-color: #0b3954;
   padding: 1rem 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b3954;
+  padding: 0 24px;
+  border-bottom: 2px solid #eee;
 }
 
 #header h1 {
@@ -140,10 +153,6 @@ main section {
   row-gap: 96px;
 }
 
-.logo {
-  height: 74px;
-}
-
 .footer {
   padding: 64px 0;
   border-top: 1px solid #eee;
@@ -233,7 +242,4 @@ main section {
   color: var(--mantis);
   font-size: 1em;
   margin-left: 0.5rem;
-}
-.logo {
-  height: 74px;
 }
