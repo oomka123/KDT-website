@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - KDT</title>
     <link rel="stylesheet" href="../styles/homepage.css">
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
 </head>
 <body>
     <header id="header">
-        <h1>KazFood</h1>
+        <img src="/images/logo.png" alt="KDT Logo" class="logo">
         <nav>
             <a href="homepage.html">Home</a>
             <a href="about.html">About</a>
@@ -38,8 +46,71 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 KDT. All rights reserved. Made by: Uranov Daryn, Ahkmetov Kazbek, Sapargali Temirlan.</p>
+<footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img src="../images/logo.png" alt="Logo" class="logo" />
+          </a>
+
+          <ul class="social-links">
+            <li>
+              <a class="footer-link" href="https://www.instagram.com/"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="https://www.facebook.com"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="https://www.twitter.com"
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+          </ul>
+
+          <p class="copyright">
+            Copyright &copy; <span class="year">2027</span> by Kuizine, Inc. All
+            rights reserved.
+          </p>
+        </div>
+
+        <div class="about-nav">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              <a
+                class="footer-link"
+                href="https://2gis.kz/astana/geo/70030076130637840/71.417999%2C51.09098?m=71.417125%2C51.091268%2F16.49"
+                target="_blank"
+              >
+                Astana IT University<br />
+                Mangilik El Avenue, C1 ​Yesil district, Astana
+              </a>
+            </p>
+            <p class="address">
+              <a class="footer-link" href="tel:+77777777777" target="_blank">
+                8-777-777-7777
+              </a>
+              <br />
+              <a
+                class="footer-link"
+                href="mailto:kuizine@email.com"
+                target="_blank"
+              >
+                kuizine@email.com
+              </a>
+            </p>
+          </address>
+        </div>
+        <div class="team-col">
+          <p class="team-p">
+            Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
+          </p>
+        </div>
+      </div>
     </footer>
 </body>
 </html>
