@@ -15,7 +15,7 @@
   align-items: center;
   background-color: #4bb3fd;
   padding: 0 24px;
-  margin-bottom: 48px;
+  margin-bottom: 156px;
 }
 
 .main-nav-list {
@@ -48,7 +48,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 96px;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 156px;
 }
 
 .description {
@@ -68,6 +68,11 @@
 .food-photo {
   width: 100%;
   display: block;
+  transition: all 0.4s;
+}
+
+.food-photo-box:hover .food-photo {
+  transform: scale(1.05);
 }
 
 .container {
