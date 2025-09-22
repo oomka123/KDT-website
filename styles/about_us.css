@@ -16,26 +16,43 @@
   border-bottom: 2px solid #eee;
 }
 
-.main-nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 48px;
+nav {
+  background-color: var(--prussian-blue);
+  padding: 0.5rem 1rem;
 }
 
-.main-nav-link:link,
-.main-nav-link:visited {
-  display: inline-block;
+.nav-link {
   text-decoration: none;
-  color: rgb(51, 51, 51);
+  color: #f7f7f7;
+  align-items: center;
+  margin-left: 10px;
+  padding: 5px 10px;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
   font-weight: 500;
   font-size: 18px;
   transition: all 0.3s;
 }
 
-.main-nav-link:hover,
-.main-nav-link:active {
-  color: #adadb3;
+.nav-link:hover,
+.nav-link:active {
+  color: #535353;
+}
+
+.nav-link.nav-link-bor:link,
+.nav-link.nav-link-bor:visited {
+  padding: 12px 24px;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #214d6d;
+}
+
+.nav-link.nav-link-bor:hover,
+.nav-link.nav-link-bor:active {
+  background-color: #1c435e;
 }
 
 /* ---------------- ABOUT US ----------------- */
