@@ -68,48 +68,49 @@ nav {
 
 /* HEADER */
 
-  .qurtContainer {
-    display: flex;
-    justify-content: center;
-    margin: 180px 0;
-  }
+.listContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-  .qurtGrid {
-    width: 1300px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+.listMessage {
+  margin: 32px auto;
+  font-size: 64px;
+}
 
-  .qurtAbout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.listGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-bottom: 230px;
+}
 
-  .qurtAbout h2 {
-    font-size: 32px;
-    padding: 2rem 0;
-  }
+.listItem {
+  padding: 1rem;
+  width: 100%;
+  max-width: 360px;
+}
 
-  .qurtAbout p {
-    font-size: 20px;
-  }
+.listItemName {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: black;
+}
 
-  .qurtImageContainer {
-    width: 570px;
-    height: 380px;
-    padding: 10px 0;
-    background-color: #f5d87f;
-    border-radius: 10px;
-    margin-left: 1rem;
-  }
+.listItemImageContainer {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
-  .qurtImage {
+.listItemImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
+}
 
 /* FOOTER */
 
@@ -132,7 +133,7 @@ nav {
 }
 
 .grid--footer {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .logo-col {
@@ -195,5 +196,12 @@ nav {
   color: #adadb3;
 }
 
+.team-col {
+  margin-top: 24px;
+}
+
+.team-p {
+  color: #f7f7ff;
+}
 
 /* FOOTER */
