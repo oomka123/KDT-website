@@ -68,48 +68,47 @@ nav {
 
 /* HEADER */
 
-  .qurtContainer {
-    display: flex;
-    justify-content: center;
-    margin: 180px 0;
-  }
+.qurtContainer {
+  display: flex;
+  justify-content: center;
+  margin: 180px 0;
+}
 
-  .qurtGrid {
-    width: 1300px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+.qurtGrid {
+  width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  .qurtAbout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.qurtAbout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .qurtAbout h2 {
-    font-size: 32px;
-    padding: 2rem 0;
-  }
+.qurtAbout h2 {
+  font-size: 32px;
+  padding: 2rem 0;
+}
 
-  .qurtAbout p {
-    font-size: 20px;
-  }
+.qurtAbout p {
+  font-size: 20px;
+}
 
-  .qurtImageContainer {
-    width: 570px;
-    height: 380px;
-    padding: 10px 0;
-    background-color: #f5d87f;
-    border-radius: 10px;
-    margin-left: 1rem;
-  }
+.qurtImageContainer {
+  width: 570px;
+  height: 380px;
+  padding: 10px 0;
+  background-color: #f5d87f;
+  border-radius: 10px;
+  margin-left: 1rem;
+}
 
-  .qurtImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+.qurtImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* FOOTER */
 
@@ -132,7 +131,7 @@ nav {
 }
 
 .grid--footer {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .logo-col {
@@ -195,5 +194,10 @@ nav {
   color: #adadb3;
 }
 
+.team-col {
+  margin-top: 24px;
+}
 
-/* FOOTER */
+.team-p {
+  color: #f7f7ff;
+}
