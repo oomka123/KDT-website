@@ -24,7 +24,7 @@
       </nav>
     </header>
 
-    <main>
+      <main>
       <section>
         <img src="/images/background.jpg" alt="back" class="food-image" />
         <div class="text-content">
@@ -38,18 +38,33 @@
             Kazakh culture.
           </p>
           <ul>
-            <li>
-              <strong>Beshbarmak</strong> – the national dish of meat and
-              noodles.
-            </li>
-            <li>
-              <strong>Baursaks</strong> – golden fried bread, perfect with tea.
-            </li>
-            <li>
-              <strong>Kumis</strong> – a refreshing drink made from fermented
-              mare’s milk.
-            </li>
+            <li><strong>Beshbarmak</strong> – the national dish of meat and noodles.</li>
+            <li><strong>Baursaks</strong> – golden fried bread, perfect with tea.</li>
+            <li><strong>Kumis</strong> – a refreshing drink made from fermented mare’s milk.</li>
           </ul>
+        </div>
+      </section>
+
+      <section class="card-section" id="card-section">
+        <div class="card">
+          <img src="/images/besh.jpg" alt="Beshbarmak" />
+          <h3>Beshbarmak</h3>
+          <p>The national dish of Kazakhstan made with boiled meat and noodles.</p>
+          <button class="card-btn">Learn More</button>
+        </div>
+
+        <div class="card">
+          <img src="/images/baursak.png" alt="Baursaks" />
+          <h3>Baursaks</h3>
+          <p>Golden fried bread, a staple in Kazakh cuisine, usually served with tea.</p>
+          <button class="card-btn">Learn More</button>
+        </div>
+
+        <div class="card">
+          <img src="/images/kumuz.jpg" alt="Kumis" />
+          <h3>Kumis</h3>
+          <p>A refreshing fermented mare’s milk drink, rich in tradition.</p>
+          <button class="card-btn">Learn More</button>
         </div>
       </section>
 
@@ -66,24 +81,12 @@
               <form class="cta-form">
                 <div>
                   <label for="full-name">Full Name</label>
-                  <input
-                    id="full-name"
-                    type="text"
-                    placeholder="John Smith"
-                    name="full-name"
-                    required
-                  />
+                  <input id="full-name" type="text" placeholder="John Smith" name="full-name" required />
                 </div>
 
                 <div>
                   <label for="email">Email address</label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="me@example.com"
-                    name="email"
-                    required
-                  />
+                  <input id="email" type="email" placeholder="me@example.com" name="email" required />
                 </div>
 
                 <div>
@@ -99,9 +102,6 @@
                 </div>
 
                 <button class="btn btn--form">Sign up now</button>
-
-                <!-- <input type="checkbox" />
-                <input type="number" /> -->
               </form>
             </div>
           </div>
@@ -109,7 +109,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="container grid grid--footer">
         <div class="logo-col">
           <a href="#" class="footer-logo">
