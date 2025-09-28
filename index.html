@@ -10,170 +10,224 @@
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
     ></script>
     <script
-      nomodule=""
+      nomodule
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
   </head>
   <body>
-    <header id="header">
-      <img src="/images/logo.png" alt="KDT Logo" class="logo" />
-      <nav>
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="pages/about_us.html" class="nav-link">About</a>
-        <a href="pages/list.html" class="nav-link nav-link-bor">Foods</a>
-      </nav>
-    </header>
+    <div class="grid-container">
+      <!-- HEADER -->
+      <header id="header">
+        <img src="/images/logo.png" alt="KDT Logo" class="logo" />
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="pages/about_us.html" class="nav-link">About</a>
+          <a href="pages/list.html" class="nav-link nav-link-bor">Foods</a>
+        </nav>
+      </header>
 
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#food-image">Main</a></li>
+          <li><a href="#card-section">Popular Dishes</a></li>
+          <li><a href="#cta">Sign Up</a></li>
+          <li><a href="#footer">Footer</a></li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
       <main>
-      <section>
-        <img src="/images/background.jpg" alt="back" class="food-image" />
-        <div class="text-content">
-          <h2>Welcome to Our KDT-website</h2>
-          <p>
-            We are delighted to welcome you to a place where tradition meets
-            taste. Our mission is to share the authentic flavors of Kazakh
-            cuisine and preserve the culinary heritage of our people. Here, you
-            will discover timeless recipes, learn about the history behind each
-            dish, and experience the warm spirit of hospitality that defines
-            Kazakh culture.
-          </p>
-          <ul>
-            <li><strong>Beshbarmak</strong> – the national dish of meat and noodles.</li>
-            <li><strong>Baursaks</strong> – golden fried bread, perfect with tea.</li>
-            <li><strong>Kumis</strong> – a refreshing drink made from fermented mare’s milk.</li>
-          </ul>
-        </div>
-      </section>
+        <section id="food-image">
+          <img src="/images/background.jpg" alt="back" class="food-image" />
+          <div class="text-content">
+            <h2>Welcome to Our KDT-website</h2>
+            <p>
+              We are delighted to welcome you to a place where tradition meets
+              taste. Our mission is to share the authentic flavors of Kazakh
+              cuisine and preserve the culinary heritage of our people. Here,
+              you will discover timeless recipes, learn about the history
+              behind each dish, and experience the warm spirit of hospitality
+              that defines Kazakh culture.
+            </p>
+            <ul>
+              <li>
+                <strong>Beshbarmak</strong> – the national dish of meat and
+                noodles.
+              </li>
+              <li>
+                <strong>Baursaks</strong> – golden fried bread, perfect with
+                tea.
+              </li>
+              <li>
+                <strong>Kumis</strong> – a refreshing drink made from fermented
+                mare’s milk.
+              </li>
+            </ul>
+          </div>
+        </section>
 
-      <section class="card-section" id="card-section">
-        <div class="card">
-          <img src="/images/besh.jpg" alt="Beshbarmak" />
-          <h3>Beshbarmak</h3>
-          <p>The national dish of Kazakhstan made with boiled meat and noodles.</p>
-          <button class="card-btn">Learn More</button>
-        </div>
+        <section class="card-section" id="card-section">
+          <div class="card">
+            <img src="/images/besh.jpg" alt="Beshbarmak" />
+            <h3>Beshbarmak</h3>
+            <p>
+              The national dish of Kazakhstan made with boiled meat and noodles.
+            </p>
+            <button class="card-btn">Learn More</button>
+          </div>
 
-        <div class="card">
-          <img src="/images/baursak.png" alt="Baursaks" />
-          <h3>Baursaks</h3>
-          <p>Golden fried bread, a staple in Kazakh cuisine, usually served with tea.</p>
-          <button class="card-btn">Learn More</button>
-        </div>
+          <div class="card">
+            <img src="/images/baursak.png" alt="Baursaks" />
+            <h3>Baursaks</h3>
+            <p>
+              Golden fried bread, a staple in Kazakh cuisine, usually served
+              with tea.
+            </p>
+            <button class="card-btn">Learn More</button>
+          </div>
 
-        <div class="card">
-          <img src="/images/kumuz.jpg" alt="Kumis" />
-          <h3>Kumis</h3>
-          <p>A refreshing fermented mare’s milk drink, rich in tradition.</p>
-          <button class="card-btn">Learn More</button>
-        </div>
-      </section>
+          <div class="card">
+            <img src="/images/kumuz.jpg" alt="Kumis" />
+            <h3>Kumis</h3>
+            <p>
+              A refreshing fermented mare’s milk drink, rich in tradition.
+            </p>
+            <button class="card-btn">Learn More</button>
+          </div>
+        </section>
 
-      <section class="section-cta" id="cta">
-        <div class="container">
-          <div class="cta">
-            <div class="cta-text-box">
-              <h2 class="heading-secondary">Taste Kazakhstan with us!</h2>
-              <p class="cta-text">
-                Authentic, flavorful and hassle-free Kazakh meals are waiting
-                for you. Discover the rich traditions of our cuisine today.
-              </p>
+        <section class="section-cta" id="cta">
+          <div class="container">
+            <div class="cta">
+              <div class="cta-text-box">
+                <h2 class="heading-secondary">Taste Kazakhstan with us!</h2>
+                <p class="cta-text">
+                  Authentic, flavorful and hassle-free Kazakh meals are waiting
+                  for you. Discover the rich traditions of our cuisine today.
+                </p>
 
-              <form class="cta-form">
-                <div>
-                  <label for="full-name">Full Name</label>
-                  <input id="full-name" type="text" placeholder="John Smith" name="full-name" required />
-                </div>
+                <form class="cta-form">
+                  <div>
+                    <label for="full-name">Full Name</label>
+                    <input
+                      id="full-name"
+                      type="text"
+                      placeholder="John Smith"
+                      name="full-name"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label for="email">Email address</label>
-                  <input id="email" type="email" placeholder="me@example.com" name="email" required />
-                </div>
+                  <div>
+                    <label for="email">Email address</label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="me@example.com"
+                      name="email"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label for="select-where">Where did you hear from us?</label>
-                  <select id="select-where" name="select-where" required>
-                    <option value="">Please choose one option:</option>
-                    <option value="friends">Friends and family</option>
-                    <option value="youtube">YouTube video</option>
-                    <option value="podcast">Podcast</option>
-                    <option value="ad">Facebook ad</option>
-                    <option value="others">Others</option>
-                  </select>
-                </div>
+                  <div>
+                    <label for="select-where">Where did you hear from us?</label>
+                    <select id="select-where" name="select-where" required>
+                      <option value="">Please choose one option:</option>
+                      <option value="friends">Friends and family</option>
+                      <option value="youtube">YouTube video</option>
+                      <option value="podcast">Podcast</option>
+                      <option value="ad">Facebook ad</option>
+                      <option value="others">Others</option>
+                    </select>
+                  </div>
 
-                <button class="btn btn--form">Sign up now</button>
-              </form>
+                  <button class="btn btn--form">Sign up now</button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
 
-    <footer class="footer" id="footer">
-      <div class="container grid grid--footer">
-        <div class="logo-col">
-          <a href="#" class="footer-logo">
-            <img src="/images/logo.png" alt="Logo" class="logo" />
-          </a>
+      <!-- FOOTER -->
+      <footer class="footer" id="footer">
+        <div class="container grid grid--footer">
+          <div class="logo-col">
+            <a href="#" class="footer-logo">
+              <img src="/images/logo.png" alt="Logo" class="logo" />
+            </a>
 
-          <ul class="social-links">
-            <li>
-              <a class="footer-link" href="https://www.instagram.com/"
-                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="https://www.facebook.com"
-                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="https://www.twitter.com"
-                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
-              ></a>
-            </li>
-          </ul>
+            <ul class="social-links">
+              <li>
+                <a class="footer-link" href="https://www.instagram.com/"
+                  ><ion-icon
+                    class="social-icon"
+                    name="logo-instagram"
+                  ></ion-icon
+                ></a>
+              </li>
+              <li>
+                <a class="footer-link" href="https://www.facebook.com"
+                  ><ion-icon
+                    class="social-icon"
+                    name="logo-facebook"
+                  ></ion-icon
+                ></a>
+              </li>
+              <li>
+                <a class="footer-link" href="https://www.twitter.com"
+                  ><ion-icon
+                    class="social-icon"
+                    name="logo-twitter"
+                  ></ion-icon
+                ></a>
+              </li>
+            </ul>
 
-          <p class="copyright">
-            Copyright &copy; <span class="year">2027</span> by Kuizine, Inc. All
-            rights reserved.
-          </p>
-        </div>
-
-        <div class="about-nav">
-          <p class="footer-heading">Contact us</p>
-          <address class="contacts">
-            <p class="address">
-              <a
-                class="footer-link"
-                href="https://2gis.kz/astana/geo/70030076130637840/71.417999%2C51.09098?m=71.417125%2C51.091268%2F16.49"
-                target="_blank"
-              >
-                Astana IT University<br />
-                Mangilik El Avenue, C1 ​Yesil district, Astana
-              </a>
+            <p class="copyright">
+              Copyright &copy; <span class="year">2027</span> by Kuizine, Inc.
+              All rights reserved.
             </p>
-            <p class="address">
-              <a class="footer-link" href="tel:+77777777777" target="_blank">
-                8-777-777-7777
-              </a>
-              <br />
-              <a
-                class="footer-link"
-                href="mailto:kuizine@email.com"
-                target="_blank"
-              >
-                kuizine@email.com
-              </a>
+          </div>
+
+          <div class="about-nav">
+            <p class="footer-heading">Contact us</p>
+            <address class="contacts">
+              <p class="address">
+                <a
+                  class="footer-link"
+                  href="https://2gis.kz/astana/geo/70030076130637840/71.417999%2C51.09098?m=71.417125%2C51.091268%2F16.49"
+                  target="_blank"
+                >
+                  Astana IT University<br />
+                  Mangilik El Avenue, C1 ​Yesil district, Astana
+                </a>
+              </p>
+              <p class="address">
+                <a class="footer-link" href="tel:+77777777777" target="_blank">
+                  8-777-777-7777
+                </a>
+                <br />
+                <a
+                  class="footer-link"
+                  href="mailto:kuizine@email.com"
+                  target="_blank"
+                >
+                  kuizine@email.com
+                </a>
+              </p>
+            </address>
+          </div>
+
+          <div class="team-col">
+            <p class="team-p">
+              Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
             </p>
-          </address>
+          </div>
         </div>
-        <div class="team-col">
-          <p class="team-p">
-            Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
-          </p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>
