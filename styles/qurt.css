@@ -68,16 +68,20 @@ nav {
 
 /* HEADER */
 
+/* MAIN */
+
 .qurtContainer {
   display: flex;
   justify-content: center;
-  margin: 180px 0;
+  padding: 4rem 1rem;
 }
 
 .qurtGrid {
-  width: 1300px;
+  width: 100%;
+  max-width: 1300px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .qurtAbout {
@@ -87,21 +91,21 @@ nav {
 }
 
 .qurtAbout h2 {
-  font-size: 32px;
-  padding: 2rem 0;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .qurtAbout p {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .qurtImageContainer {
-  width: 570px;
-  height: 380px;
-  padding: 10px 0;
+  width: 100%;
+  max-width: 570px;
+  aspect-ratio: 3 / 2;
+  padding: 10px;
   background-color: #f5d87f;
   border-radius: 10px;
-  margin-left: 1rem;
 }
 
 .qurtImage {
@@ -109,6 +113,8 @@ nav {
   height: 100%;
   object-fit: cover;
 }
+
+/* MAIN */
 
 /* FOOTER */
 
