@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* GLOBAL */
 :root {
     --mantis: #7AC74F;
@@ -5,5 +7,6 @@
     --ghost-white: #F7F7FF;
     --prussian-blue: #0B3954;
     --light-brown: #f5d87f;
+    --font-roboto: 'Roboto', sans-serif;
 } 
 /* GLOBAL */

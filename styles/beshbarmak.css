@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   --mantis: #7ac74f;
   --argentinian-blue: #4bb3fd;
@@ -9,6 +11,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 main {
   flex: 1;
