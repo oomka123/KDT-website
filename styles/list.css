@@ -1,69 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-/* HEADER */
+:root {
+  --mantis: #7ac74f;
+  --argentinian-blue: #4bb3fd;
+  --ghost-white: #f7f7ff;
+  --prussian-blue: #0b3954;
+  --ut-orange: #ff8811;
+}
+/* HEADING */
 
-#header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0b3954;
-  padding: 1rem 2rem;
+.navbar-custom {
+  background-color: var(--prussian-blue) !important;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0b3954;
-  padding: 0 24px;
-  border-bottom: 2px solid #eee;
-}
-
-nav {
-  background-color: #0b3954;
-  padding: 0.5rem 1rem;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #f7f7f7;
-  align-items: center;
-  margin-left: 10px;
-  padding: 5px 10px;
-}
-
-.nav-link:link,
-.nav-link:visited {
-  display: inline-block;
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: var(--ghost-white) !important;
   font-weight: 500;
-  font-size: 18px;
-  transition: all 0.3s;
+  transition: color 0.3s ease;
 }
 
-.nav-link:hover,
-.nav-link:active {
-  color: #535353;
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: var(--mantis) !important;
 }
 
-.nav-link.nav-link-bor:link,
-.nav-link.nav-link-bor:visited {
-  padding: 12px 24px;
-  border-radius: 9px;
-  color: #fff;
-  background-color: #214d6d;
+.navbar-toggler {
+  border-color: var(--ghost-white) !important;
 }
 
-.nav-link.nav-link-bor:hover,
-.nav-link.nav-link-bor:active {
-  background-color: #1c435e;
+.navbar-toggler-icon {
+  filter: invert(1);
 }
 
 .logo {
@@ -74,96 +48,59 @@ nav {
 
 /* MAIN */
 
-.listContainer {
-  max-width: 1360px;
-  width: 90%;
-  margin: 0 auto;
-}
+    .listHeader {
+      text-align: center;
+      margin-top: 4rem;
+    }
 
-.listGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  align-items: stretch;
-  gap: 1.25rem;
-  padding: 4rem 0;
-}
+    .listHeader h2 {
+      font-weight: normal;
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 3.5rem;
+    }
 
-@media (max-width: 1024px) {
-  .listGrid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
+    .listCard {
+      text-decoration: none;
+    }
 
-@media (max-width: 640px) {
-  .listGrid {
-    grid-template-columns: 1fr; 
-  }
-}
+    .card-body {
+      background-color: var(--prussian-blue);
+    }
 
-.listHeader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    .card {
+      border: none;
+      border-radius: 1rem;
+      overflow: hidden;
+      height: 100%;
+      transition: transform 0.2s ease-in-out;
+    }
 
-  margin-top: 4rem;
-}
+    .card:hover {
+      transform: translateY(-4px);
+    }
 
-.listHeader h2 {
-  font-weight: normal;
-  font-family: 'Noto Serif Bengali', serif;
-  font-size: 3.5rem;
-}
+    .card-img-top {
+      height: 12.5rem;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
 
-.listCard {
-  display: flex;
-  flex-direction: column;
-  grid-column: auto;
-  overflow: hidden;
-  border-radius: 1rem;
-  background-color: #176ea0;
+    .card:hover .card-img-top {
+      transform: scale(1.08);
+    }
 
-  text-decoration: none;
-  color: white;
-}
+    .card-title, .card-text {
+      color: white;
+    }
 
-.listCardImage {
-  height: 12.5rem;
-  overflow: hidden;
-}
-
-.listCardImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.listCardHeader {
-  padding: 1rem 1rem 0 1rem;
-  font-size: 1.5rem;
-}
-
-.listCardBody {
-  padding: 1rem 1rem 1.8rem 1rem;
-}
-
-.listCardImage img {
-  transition: transform 0.3s ease-in-out; 
-}
-
-.listCard:hover .listCardImage img {
-  transform: scale(1.08);
-}
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
 
 /* MAIN */
 
 /* FOOTER */
-
-.container {
-  max-width: 1200px;
-  padding: 0 320px;
-  margin: 0 auto;
-}
 
 .grid {
   display: grid;
@@ -174,11 +111,7 @@ nav {
 .footer {
   padding: 64px 0;
   border-top: 1px solid #eee;
-  background-color: #0b3954;
-}
-
-.grid--footer {
-  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--prussian-blue) !important;
 }
 
 .logo-col {

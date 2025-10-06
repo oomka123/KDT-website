@@ -3,131 +3,183 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="../styles/list.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Our dishes</title>
   </head>
   <body>
-    <header id="header">
-      <img src="/images/logo.png" alt="KDT Logo" class="logo" />
-      <nav>
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="about_us.html" class="nav-link">About</a>
-        <a href="list.html" class="nav-link nav-link-bor">Foods</a>
+    <header class="header">
+      <!-- <img src="../images/logo.png" alt="KDT Logo" class="logo" /> -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark navbar-custom"
+        id="header"
+      >
+        <img src="../images/logo.png" alt="KDT Logo" class="logo" />
+        <div class="container">
+          <!-- Hamburger (collapses on mobile) -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/about_us.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/list.html">Foods</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
-    <main>
-      <div class="listHeader">
-        <h2>Tapestry of Kuizine</h2>
+    <main class="container my-5">
+    <div class="listHeader">
+      <h2>Tapestry of Kuizine</h2>
+    </div>
+
+    <div class="row gy-4 mt-4">
+
+      <!-- Beshbarmak Card -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <a href="./beshbarmak.html" class="listCard">
+          <div class="card h-100">
+            <img src="../images/besh.jpg" class="card-img-top" alt="Beshbarmak">
+            <div class="card-body">
+              <h5 class="card-title">Beshbarmak</h5>
+              <p class="card-text">
+                Beshbarmak, meaning “five fingers,” is the national dish of Kazakhstan and a symbol of hospitality throughout Central Asia. It consists of tender boiled meat—usually lamb, beef, or horse—served over flat pasta sheets and topped with a light onion sauce. Traditionally eaten by hand during family gatherings and celebrations, beshbarmak represents unity, abundance, and cultural pride.
+              </p>
+            </div>
+          </div>
+        </a>
       </div>
 
-      <div class="listContainer listGrid">
-
-        <a class="listCard" href="./beshbarmak.html">
-          <div class="listCardImage">
-            <img src="../images/besh.jpg" alt="Beshbarmak">
-          </div>
-
-          <div class="listCardHeader">
-            Beshbarmak
-          </div>
-          <div class="listCardBody">
-            Beshbarmak, meaning “five fingers,” is the national dish of Kazakhstan and a symbol of hospitality throughout Central Asia. It consists of tender boiled meat—usually lamb, beef, or horse—served over flat pasta sheets and topped with a light onion sauce. Traditionally eaten by hand during family gatherings and celebrations, beshbarmak represents unity, abundance, and cultural pride. Its hearty, comforting flavors reflect the warmth of nomadic life.
-          </div>
-        </a>
-
-        <a class="listCard" href="./qurt.html">
-          <div class="listCardImage">
-            <img src="../images/qurtAlt.png" alt="Qurt">
-          </div>
-
-          <div class="listCardHeader">
-            Qurt
-          </div>
-          <div class="listCardBody">
-            Qurt is a traditional Central Asian snack made from dried, salted cheese curds. Small, tangy, and slightly chewy, these bite-sized pieces were originally created as a way to preserve dairy for long journeys across the steppe. Today, qurt is enjoyed as a savory snack, often paired with tea or used to add a punch of flavor to soups and stews. Its salty richness and unique texture make it a beloved taste of nomadic heritage.
+      <!-- Qurt Card -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <a href="./qurt.html" class="listCard">
+          <div class="card h-100">
+            <img src="../images/qurtAlt.png" class="card-img-top" alt="Qurt">
+            <div class="card-body">
+              <h5 class="card-title">Qurt</h5>
+              <p class="card-text">
+                Qurt is a traditional Central Asian snack made from dried, salted cheese curds. Small, tangy, and slightly chewy, these bite-sized pieces were originally created to preserve dairy for long journeys across the steppe. Today, qurt is enjoyed as a savory snack or used to add flavor to soups and stews.
+              </p>
+            </div>
           </div>
         </a>
-
-        <a class="listCard" href="./baursak.html">
-          <div class="listCardImage">
-            <img src="../images/baursak.png" alt="Baursak">
-          </div>
-
-          <div class="listCardHeader">
-            Baursak
-          </div>
-          <div class="listCardBody">
-            Baursak is a golden, fluffy fried bread popular across Central Asia, especially in Kazakhstan, Kyrgyzstan, and Uzbekistan. Made from a simple dough of flour, milk, yeast, eggs, and butter, these bite-sized pieces are deep-fried until light and airy with a slightly crisp exterior. Traditionally served during celebrations, holidays, and family gatherings, baursaks symbolize hospitality and abundance. They are often enjoyed fresh with tea, honey, or jam, and their soft texture and mild sweetness make them a comforting treat for any occasion.
-          </div>
-        </a>
-
       </div>
-    </main>
 
-    <footer class="footer">
-      <div class="container grid grid--footer">
-        <div class="logo-col">
-          <a href="#" class="footer-logo">
-            <img src="../images/logo.png" alt="Logo" class="logo" />
-          </a>
+      <!-- Baursak Card -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <a href="./baursak.html" class="listCard">
+          <div class="card h-100">
+            <img src="../images/baursak.png" class="card-img-top" alt="Baursak">
+            <div class="card-body">
+              <h5 class="card-title">Baursak</h5>
+              <p class="card-text">
+                Baursak is a golden, fluffy fried bread popular across Central Asia. Made from simple dough and deep-fried until airy, it’s served at celebrations to symbolize hospitality and abundance. Often enjoyed fresh with tea, honey, or jam, baursaks offer warmth and comfort in every bite.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
 
-          <ul class="social-links">
-            <li>
-              <a class="footer-link" href="https://www.instagram.com/"
-                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="https://www.facebook.com"
-                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="https://www.twitter.com"
-                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
-              ></a>
-            </li>
-          </ul>
+    </div>
+  </main>
 
-          <p class="copyright">
-            Copyright &copy; <span class="year">2027</span> by Kuizine, Inc. All
-            rights reserved.
-          </p>
-        </div>
-
-        <div class="about-nav">
-          <p class="footer-heading">Contact us</p>
-          <address class="contacts">
-            <p class="address">
-              <a
-                class="footer-link"
-                href="https://2gis.kz/astana/geo/70030076130637840/71.417999%2C51.09098?m=71.417125%2C51.091268%2F16.49"
-                target="_blank"
-              >
-                Astana IT University<br />
-                Mangilik El Avenue, C1 ​Yesil district, Astana
-              </a>
+    <footer
+      id="footer"
+      class="bg-dark text-light py-4 py-lg-5 mt-5 px-sm-2 px-lg-5"
+    >
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-lg-4 mb-3 text-center text-lg-start">
+            <img src="/images/logo.png" alt="Logo" class="logo mb-3" />
+            <ul class="list-inline mb-3">
+              <li class="list-inline-item mx-2">
+                <a class="text-light" href="https://www.instagram.com/"
+                  ><ion-icon name="logo-instagram"></ion-icon
+                ></a>
+              </li>
+              <li class="list-inline-item mx-2">
+                <a class="text-light" href="https://www.facebook.com"
+                  ><ion-icon name="logo-facebook"></ion-icon
+                ></a>
+              </li>
+              <li class="list-inline-item mx-2">
+                <a class="text-light" href="https://www.twitter.com"
+                  ><ion-icon name="logo-twitter"></ion-icon
+                ></a>
+              </li>
+            </ul>
+            <p class="mb-0">
+              &copy; <span class="year">2027</span> Kuizine, Inc.
             </p>
-            <p class="address">
-              <a class="footer-link" href="tel:+77777777777" target="_blank">
-                8-777-777-7777
-              </a>
-              <br />
+          </div>
+
+          <div class="col-lg-4 text-center mb-3">
+            <p class="fw-bold mb-2">Contact us</p>
+            <address class="mb-2">
               <a
-                class="footer-link"
-                href="mailto:kuizine@email.com"
+                href="https://2gis.kz/astana/"
                 target="_blank"
+                class="text-light d-block"
               >
-                kuizine@email.com
+                Astana IT University, Mangilik El Avenue, Astana
               </a>
+              <a href="tel:+77777777777" class="text-light d-block mt-2"
+                >8-777-777-7777</a
+              >
+              <a href="mailto:kuizine@email.com" class="text-light d-block"
+                >kuizine@email.com</a
+              >
+            </address>
+          </div>
+
+          <div class="col-lg-4 text-center mt-lg-3">
+            <p class="mb-0">
+              Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
             </p>
-          </address>
-        </div>
-        <div class="team-col">
-          <p class="team-p">
-            Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
-          </p>
+          </div>
         </div>
       </div>
     </footer>
