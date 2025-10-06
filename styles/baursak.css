@@ -1,14 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* Bauyrsaq CSS */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+:root {
+  --mantis: #7ac74f;
+  --argentinian-blue: #4bb3fd;
+  --ghost-white: #f7f7ff;
+  --prussian-blue: #0b3954;
+  --ut-orange: #ff8811;
+}
+.navbar-custom {
+  background-color: var(--prussian-blue) !important;
 }
 
-.heading-primary {
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: var(--ghost-white) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: var(--mantis) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--ghost-white) !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+.logo {
+  height: 54px;
+}
+/* .heading-primary {
   margin-bottom: 24px;
 }
 
@@ -71,9 +103,9 @@ nav {
 .nav-link.nav-link-bor:hover,
 .nav-link.nav-link-bor:active {
   background-color: #1c435e;
-}
+} */
 
-.about-food {
+/* .about-food {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 32px;
@@ -106,9 +138,89 @@ nav {
 
 .food-photo-box:hover .food-photo {
   transform: scale(1.05);
+} */
+
+.grid {
+  display: grid;
+  column-gap: 64px;
+  row-gap: 96px;
 }
 
-.container {
+.footer {
+  padding: 64px 0;
+  border-top: 1px solid #eee;
+  background-color: var(--prussian-blue) !important;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 0;
+}
+
+.social-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.copyright {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #dedee6;
+  margin-top: 24px;
+}
+
+.footer-heading {
+  padding-top: 24px;
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #f7f7ff;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.address {
+  margin-bottom: 24px;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 16px;
+  color: #dedee6;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #adadb3;
+}
+
+.team-col {
+  margin-top: 24px;
+}
+
+.team-p {
+  color: #f7f7ff;
+}
+
+/* .container {
   max-width: 1200px;
   padding: 0 320px;
   margin: 0 auto;
@@ -200,4 +312,4 @@ p {
 
 .team-p {
   color: #f7f7ff;
-}
+} */
