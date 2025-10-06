@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - KDT</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles/index.css" />
     <script
       type="module"
@@ -14,220 +21,303 @@
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
   </head>
+
   <body>
-    <div class="grid-container">
+    <div class="container-fluid p-0">
       <!-- HEADER -->
-      <header id="header">
-        <img src="/images/logo.png" alt="KDT Logo" class="logo" />
-        <nav>
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="pages/about_us.html" class="nav-link">About</a>
-          <a href="pages/list.html" class="nav-link nav-link-bor">Foods</a>
+      <header
+        id="header"
+        class="d-flex justify-content-between align-items-center p-3 p-sm-2 p-lg-4 bg-light border-bottom"
+      >
+        <div class="d-flex align-items-center gap-3 ms-sm-2 ms-lg-4">
+          <img src="/images/logo.png" alt="KDT Logo" class="logo" />
+          <button
+            id="sidebar-toggle"
+            class="btn btn-outline-dark ms-sm-2 ms-lg-3"
+          >
+            ☰
+          </button>
+        </div>
+
+        <nav
+          class="navbar navbar-expand-lg navbar-dark navbar-custom"
+          id="header"
+        >
+          <div class="container">
+            <!-- Hamburger (collapses on mobile) -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/about_us.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/list.html">Foods</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </header>
 
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#food-image">Main</a></li>
-          <li><a href="#card-section">Popular Dishes</a></li>
-          <li><a href="#cta">Sign Up</a></li>
-          <li><a href="#footer">Footer</a></li>
-        </ul>
-      </aside>
+      <!-- SIDEBAR + MAIN -->
+      <div class="row g-0">
+        <!-- SIDEBAR -->
+        <aside
+          class="col-lg-2 col-md-3 col-sm-12 bg-light p-3 p-sm-2 p-lg-4 sidebar"
+        >
+          <h3 class="mb-3 mb-lg-4">Quick Links</h3>
+          <ul class="list-unstyled ps-0 ms-1 ms-md-2">
+            <li class="mb-2"><a href="#food-image">Main</a></li>
+            <li class="mb-2"><a href="#card-section">Popular Dishes</a></li>
+            <li class="mb-2"><a href="#cta">Sign Up</a></li>
+            <li><a href="#footer">Footer</a></li>
+          </ul>
+        </aside>
 
-      <!-- MAIN CONTENT -->
-      <main>
-        <section id="food-image">
-          <img src="/images/background.jpg" alt="back" class="food-image" />
-          <div class="text-content">
-            <h2>Welcome to Our KDT-website</h2>
-            <p>
-              We are delighted to welcome you to a place where tradition meets
-              taste. Our mission is to share the authentic flavors of Kazakh
-              cuisine and preserve the culinary heritage of our people. Here,
-              you will discover timeless recipes, learn about the history
-              behind each dish, and experience the warm spirit of hospitality
-              that defines Kazakh culture.
-            </p>
-            <ul>
-              <li>
-                <strong>Beshbarmak</strong> – the national dish of meat and
-                noodles.
-              </li>
-              <li>
-                <strong>Baursaks</strong> – golden fried bread, perfect with
-                tea.
-              </li>
-              <li>
-                <strong>Kumis</strong> – a refreshing drink made from fermented
-                mare’s milk.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="card-section" id="card-section">
-          <div class="card">
-            <img src="/images/besh.jpg" alt="Beshbarmak" />
-            <h3>Beshbarmak</h3>
-            <p>
-              The national dish of Kazakhstan made with boiled meat and noodles.
-            </p>
-            <button class="card-btn">Learn More</button>
-          </div>
-
-          <div class="card">
-            <img src="/images/baursak.png" alt="Baursaks" />
-            <h3>Baursaks</h3>
-            <p>
-              Golden fried bread, a staple in Kazakh cuisine, usually served
-              with tea.
-            </p>
-            <button class="card-btn">Learn More</button>
-          </div>
-
-          <div class="card">
-            <img src="/images/kumuz.jpg" alt="Kumis" />
-            <h3>Kumis</h3>
-            <p>
-              A refreshing fermented mare’s milk drink, rich in tradition.
-            </p>
-            <button class="card-btn">Learn More</button>
-          </div>
-        </section>
-
-        <section class="section-cta" id="cta">
-          <div class="container">
-            <div class="cta">
-              <div class="cta-text-box">
-                <h2 class="heading-secondary">Taste Kazakhstan with us!</h2>
-                <p class="cta-text">
-                  Authentic, flavorful and hassle-free Kazakh meals are waiting
-                  for you. Discover the rich traditions of our cuisine today.
+        <!-- MAIN CONTENT -->
+        <main class="col-lg-10 col-md-9 col-sm-12 p-4">
+          <!-- Section 1 (Two Columns) -->
+          <section
+            id="food-image"
+            class="mb-5 mb-lg-5 px-sm-2 px-md-4 px-lg-5"
+          >
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-md-12 mb-3">
+                <img
+                  src="/images/background.jpg"
+                  alt="back"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <h2 class="mb-3 mt-lg-4">Welcome to Our KDT-website</h2>
+                <p class="mb-3">
+                  We are delighted to welcome you to a place where tradition
+                  meets taste. Our mission is to share the authentic flavors of
+                  Kazakh cuisine and preserve the culinary heritage of our
+                  people.
                 </p>
-
-                <form class="cta-form">
-                  <div>
-                    <label for="full-name">Full Name</label>
-                    <input
-                      id="full-name"
-                      type="text"
-                      placeholder="John Smith"
-                      name="full-name"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label for="email">Email address</label>
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="me@example.com"
-                      name="email"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label for="select-where">Where did you hear from us?</label>
-                    <select id="select-where" name="select-where" required>
-                      <option value="">Please choose one option:</option>
-                      <option value="friends">Friends and family</option>
-                      <option value="youtube">YouTube video</option>
-                      <option value="podcast">Podcast</option>
-                      <option value="ad">Facebook ad</option>
-                      <option value="others">Others</option>
-                    </select>
-                  </div>
-
-                  <button class="btn btn--form">Sign up now</button>
-                </form>
+                <ul class="ps-3">
+                  <li>
+                    <strong>Beshbarmak</strong> – the national dish of meat and
+                    noodles.
+                  </li>
+                  <li>
+                    <strong>Baursaks</strong> – golden fried bread, perfect with
+                    tea.
+                  </li>
+                  <li>
+                    <strong>Kumis</strong> – a refreshing drink made from
+                    fermented mare’s milk.
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+
+          <!-- Section 2 (Three Columns – Bootstrap Cards) -->
+          <section id="card-section" class="mb-5">
+            <h2 class="text-center mb-4">Popular Dishes</h2>
+
+            <!-- Card Group -->
+            <div class="card-group">
+              <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="card h-100 shadow-sm">
+                    <img src="/images/besh.jpg" class="card-img-top" alt="Beshbarmak" />
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Beshbarmak</h3>
+                      <p class="card-text">
+                        The national dish of Kazakhstan made with boiled meat and noodles.
+                      </p>
+                      <div class="btn-group" role="group" aria-label="Dish actions">
+                        <button class="btn btn-mantis btn-sm">Learn More</button>
+                        <button class="btn btn-outline-mantis btn-sm">Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="card h-100 shadow-sm">
+                    <img src="/images/baursak.png" class="card-img-top" alt="Baursaks" />
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Baursaks</h3>
+                      <p class="card-text">
+                        Golden fried bread, a staple in Kazakh cuisine, usually served with tea.
+                      </p>
+                      <div class="btn-group" role="group" aria-label="Dish actions">
+                        <button class="btn btn-mantis btn-sm">Learn More</button>
+                        <button class="btn btn-outline-mantis btn-sm">Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="card h-100 shadow-sm">
+                    <img src="/images/kumuz.jpg" class="card-img-top" alt="Kumis" />
+                    <div class="card-body text-center">
+                      <h3 class="card-title">Kumis</h3>
+                      <p class="card-text">
+                        A refreshing fermented mare’s milk drink, rich in tradition.
+                      </p>
+                      <div class="btn-group" role="group" aria-label="Dish actions">
+                        <button class="btn btn-mantis btn-sm">Learn More</button>
+                        <button class="btn btn-outline-mantis btn-sm">Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3 (Form) -->
+          <section id="cta" class="mb-5 px-sm-2 px-lg-5">
+            <div class="p-4 p-sm-3 p-lg-5 bg-light rounded shadow">
+              <h2 class="text-center mb-4 mt-lg-4">Taste Kazakhstan with us!</h2>
+              <p class="text-center mb-4">
+                Authentic, flavorful and hassle-free Kazakh meals are waiting
+                for you. Discover the rich traditions of our cuisine today.
+              </p>
+
+              <form class="row g-3 justify-content-center">
+                <div class="col-md-5">
+                  <label for="full-name" class="form-label mb-2">Full Name</label>
+                  <input
+                    id="full-name"
+                    type="text"
+                    class="form-control"
+                    placeholder="John Smith"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-5">
+                  <label for="email" class="form-label mb-2">Email address</label>
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="me@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-10">
+                  <label for="select-where" class="form-label mb-2"
+                    >Where did you hear from us?</label
+                  >
+                  <select id="select-where" class="form-select" required>
+                    <option value="">Please choose one option:</option>
+                    <option value="friends">Friends and family</option>
+                    <option value="youtube">YouTube video</option>
+                    <option value="podcast">Podcast</option>
+                    <option value="ad">Facebook ad</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+
+                <div
+                  class="col-md-10 text-center d-flex justify-content-center gap-2 mt-3 flex-wrap"
+                >
+                  <button class="btn btn-mantis btn-lg">Sign up now</button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </main>
+      </div>
 
       <!-- FOOTER -->
-      <footer class="footer" id="footer">
-        <div class="container grid grid--footer">
-          <div class="logo-col">
-            <a href="#" class="footer-logo">
-              <img src="/images/logo.png" alt="Logo" class="logo" />
-            </a>
+      <footer
+        id="footer"
+        class="bg-dark text-light py-4 py-lg-5 mt-5 px-sm-2 px-lg-5"
+      >
+        <div class="container">
+          <div class="row gy-3">
+            <div class="col-lg-4 mb-3 text-center text-lg-start">
+              <img src="/images/logo.png" alt="Logo" class="logo mb-3" />
+              <ul class="list-inline mb-3">
+                <li class="list-inline-item mx-2">
+                  <a
+                    class="text-light"
+                    href="https://www.instagram.com/"
+                    ><ion-icon name="logo-instagram"></ion-icon
+                  ></a>
+                </li>
+                <li class="list-inline-item mx-2">
+                  <a class="text-light" href="https://www.facebook.com"
+                    ><ion-icon name="logo-facebook"></ion-icon
+                  ></a>
+                </li>
+                <li class="list-inline-item mx-2">
+                  <a class="text-light" href="https://www.twitter.com"
+                    ><ion-icon name="logo-twitter"></ion-icon
+                  ></a>
+                </li>
+              </ul>
+              <p class="mb-0">&copy; <span class="year">2027</span> Kuizine, Inc.</p>
+            </div>
 
-            <ul class="social-links">
-              <li>
-                <a class="footer-link" href="https://www.instagram.com/"
-                  ><ion-icon
-                    class="social-icon"
-                    name="logo-instagram"
-                  ></ion-icon
-                ></a>
-              </li>
-              <li>
-                <a class="footer-link" href="https://www.facebook.com"
-                  ><ion-icon
-                    class="social-icon"
-                    name="logo-facebook"
-                  ></ion-icon
-                ></a>
-              </li>
-              <li>
-                <a class="footer-link" href="https://www.twitter.com"
-                  ><ion-icon
-                    class="social-icon"
-                    name="logo-twitter"
-                  ></ion-icon
-                ></a>
-              </li>
-            </ul>
-
-            <p class="copyright">
-              Copyright &copy; <span class="year">2027</span> by Kuizine, Inc.
-              All rights reserved.
-            </p>
-          </div>
-
-          <div class="about-nav">
-            <p class="footer-heading">Contact us</p>
-            <address class="contacts">
-              <p class="address">
+            <div class="col-lg-4 text-center mb-3">
+              <p class="fw-bold mb-2">Contact us</p>
+              <address class="mb-2">
                 <a
-                  class="footer-link"
-                  href="https://2gis.kz/astana/geo/70030076130637840/71.417999%2C51.09098?m=71.417125%2C51.091268%2F16.49"
+                  href="https://2gis.kz/astana/"
                   target="_blank"
+                  class="text-light d-block"
                 >
-                  Astana IT University<br />
-                  Mangilik El Avenue, C1 ​Yesil district, Astana
+                  Astana IT University, Mangilik El Avenue, Astana
                 </a>
-              </p>
-              <p class="address">
-                <a class="footer-link" href="tel:+77777777777" target="_blank">
-                  8-777-777-7777
-                </a>
-                <br />
-                <a
-                  class="footer-link"
-                  href="mailto:kuizine@email.com"
-                  target="_blank"
+                <a href="tel:+77777777777" class="text-light d-block mt-2"
+                  >8-777-777-7777</a
                 >
-                  kuizine@email.com
-                </a>
-              </p>
-            </address>
-          </div>
+                <a href="mailto:kuizine@email.com" class="text-light d-block"
+                  >kuizine@email.com</a
+                >
+              </address>
+            </div>
 
-          <div class="team-col">
-            <p class="team-p">
-              Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
-            </p>
+            <div class="col-lg-4 text-center mt-lg-3">
+              <p class="mb-0">
+                Made by: Uranov Daryn, Akhmetov Kazbek, Sapargali Temirlan.
+              </p>
+            </div>
           </div>
         </div>
       </footer>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const toggleBtn = document.getElementById('sidebar-toggle');
+      const sidebar = document.querySelector('.sidebar');
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('d-none');
+      });
+    </script>
   </body>
 </html>
