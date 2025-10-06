@@ -344,7 +344,7 @@ main section {
   background-position: center;
 }
 
-.cta-form {
+/*.cta-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 32px;
@@ -378,7 +378,7 @@ main section {
 .cta *:focus {
   outline: none;
   box-shadow: 0 0 0 8px rgba(253, 242, 233, 0.5);
-}
+}*/
 
 /*.btn,
 .btn:link,

@@ -192,56 +192,85 @@
             </div>
           </section>
 
-          <!-- Section 3 (Form) -->
+          <!-- Section 3 (Responsive Bootstrap Form) -->
           <section id="cta" class="mb-5 px-sm-2 px-lg-5">
-            <div class="p-4 p-sm-3 p-lg-5 bg-light rounded shadow">
-              <h2 class="text-center mb-4 mt-lg-4">Taste Kazakhstan with us!</h2>
+            <div class="p-4 p-lg-5 bg-light rounded shadow">
+              <h2 class="text-center mb-4">Taste Kazakhstan with Us!</h2>
               <p class="text-center mb-4">
                 Authentic, flavorful and hassle-free Kazakh meals are waiting
-                for you. Discover the rich traditions of our cuisine today.
+                for you.
               </p>
 
               <form class="row g-3 justify-content-center">
+                <!-- Full Name -->
                 <div class="col-md-5">
-                  <label for="full-name" class="form-label mb-2">Full Name</label>
-                  <input
-                    id="full-name"
-                    type="text"
-                    class="form-control"
-                    placeholder="John Smith"
-                    required
-                  />
+                  <label for="full-name" class="form-label">Full Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"
+                      ><ion-icon name="person-outline"></ion-icon
+                    ></span>
+                    <input
+                      type="text"
+                      id="full-name"
+                      class="form-control"
+                      placeholder="John Smith"
+                      required
+                    />
+                  </div>
                 </div>
 
+                <!-- Email -->
                 <div class="col-md-5">
-                  <label for="email" class="form-label mb-2">Email address</label>
-                  <input
-                    id="email"
-                    type="email"
-                    class="form-control"
-                    placeholder="me@example.com"
-                    required
-                  />
+                  <label for="email" class="form-label">Email address</label>
+                  <div class="input-group">
+                    <span class="input-group-text"
+                      ><ion-icon name="mail-outline"></ion-icon
+                    ></span>
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="me@example.com"
+                      required
+                    />
+                  </div>
                 </div>
 
+                <!-- Select -->
                 <div class="col-md-10">
-                  <label for="select-where" class="form-label mb-2"
+                  <label for="select-where" class="form-label"
                     >Where did you hear from us?</label
                   >
                   <select id="select-where" class="form-select" required>
-                    <option value="">Please choose one option:</option>
-                    <option value="friends">Friends and family</option>
-                    <option value="youtube">YouTube video</option>
+                    <option value="">Choose one option</option>
+                    <option value="friends">Friends & Family</option>
+                    <option value="youtube">YouTube</option>
                     <option value="podcast">Podcast</option>
-                    <option value="ad">Facebook ad</option>
+                    <option value="ad">Facebook Ad</option>
                     <option value="others">Others</option>
                   </select>
                 </div>
 
-                <div
-                  class="col-md-10 text-center d-flex justify-content-center gap-2 mt-3 flex-wrap"
-                >
-                  <button class="btn btn-mantis btn-lg">Sign up now</button>
+                <!-- Newsletter Checkbox -->
+                <div class="col-md-10">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="subscribe"
+                    />
+                    <label class="form-check-label" for="subscribe">
+                      Subscribe to our newsletter for weekly recipes
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-md-10 text-center mt-3">
+                  <button class="btn btn-mantis btn-lg px-5">
+                    Sign Up Now
+                  </button>
                 </div>
               </form>
             </div>
