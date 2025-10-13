@@ -141,12 +141,10 @@ body.dark-mode {
   border-right: 1px solid #333;
 }
 
-/* Заголовок в сайдбаре */
 .dark-mode .sidebar h3 {
   color: #f9f9f9;
 }
 
-/* Ссылки в сайдбаре */
 .dark-mode .sidebar a {
   color: #a8d5ff;
   text-decoration: none;
@@ -210,7 +208,6 @@ body.dark-mode {
   background-color: #222 !important;
   color: #f0f0f0;
 }
-/* Плавный переход при смене темы */
 .sidebar {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
