@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -17,6 +17,7 @@
 
 /* HEADER */
 
+#header,
 .navbar-custom {
   background-color: var(--prussian-blue) !important;
 }
@@ -67,9 +68,9 @@
   height: 100%;
   object-fit: cover;
   border-radius: 6px;
- }
+}
 
- .qurt-title {
+.qurt-title {
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -81,8 +82,8 @@
 
 @media (max-width: 767.98px) {
   .qurt-section {
-  text-align: center;
- }
+    text-align: center;
+  }
 }
 
 /* MAIN */
@@ -167,4 +168,91 @@
 
 .team-p {
   color: #f7f7ff;
+}
+
+/*  */
+/* 🌙 Dark Mode – Global */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #e8eef6 !important;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* 🌙 Navbar */
+.dark-mode .navbar-custom {
+  background-color: #1e1e1e !important;
+}
+
+.dark-mode .navbar-dark .nav-link {
+  color: #e8eef6 !important;
+  transition: color 0.3s ease;
+}
+
+.dark-mode .navbar-dark .nav-link:hover {
+  color: #00bcd4 !important;
+}
+
+.dark-mode .navbar-dark .nav-link.active {
+  color: #00bcd4 !important;
+}
+
+.dark-mode .btn-outline-dark {
+  border-color: #00bcd4 !important;
+  color: #00bcd4 !important;
+}
+.dark-mode .btn-outline-dark:hover {
+  background-color: #00bcd4 !important;
+  color: #121212 !important;
+}
+
+/* 🌙 Qurt Section */
+.dark-mode .qurt-section {
+  background-color: #181818 !important;
+}
+
+.dark-mode .qurt-title {
+  color: #00bcd4 !important;
+}
+
+.dark-mode .qurt-text {
+  color: #d3d3d3 !important;
+}
+
+.dark-mode .qurt-image-wrapper {
+  background-color: #202020;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .qurt-image {
+  filter: brightness(0.9) contrast(1.05);
+}
+
+/* 🌙 Footer */
+.dark-mode footer {
+  background-color: #0f0f0f !important;
+  color: #e8eef6 !important;
+}
+
+.dark-mode footer a {
+  color: #00bcd4 !important;
+  transition: color 0.3s ease;
+}
+
+.dark-mode footer a:hover {
+  color: #76d4ff !important;
+}
+
+.dark-mode footer ion-icon {
+  color: #00bcd4 !important;
+}
+
+/* 🌙 Logo */
+.dark-mode .logo {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Smooth transition for everything */
+* {
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.3s ease;
 }

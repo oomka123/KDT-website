@@ -14,10 +14,11 @@
   --prussian-blue: #0b3954;
   --ut-orange: #ff8811;
 }
+
 /* HEADING */
 
 .navbar-custom {
-  background-color: var(--prussian-blue) !important;
+  background-color: var(--prussian-blue);
 }
 
 .navbar-custom .navbar-brand,
@@ -87,7 +88,7 @@
 }*/
 
 .logo {
-  height: 54px;
+  height: 40px;
 }
 
 /* ---------------- MAIN ----------------- */
@@ -396,6 +397,11 @@
 .team-p {
   color: #f7f7ff;
 }
+
+#header,
+.navbar-custom {
+  background-color: var(--prussian-blue) !important;
+}
 /* .container {
   max-width: 1200px;
   padding: 0 320px;
@@ -495,3 +501,132 @@
   font-size: 2rem;
   margin-bottom: 2rem;
 } */
+/* 🌙 Dark Mode Styles for About Us Page */
+.dark-mode {
+  background-color: #121212;
+  color: #e8eef6;
+}
+
+/* Header */
+.dark-mode header {
+  color: #e8eef6 !important;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.dark-mode header .nav-link {
+  color: #e8eef6 !important;
+}
+
+.dark-mode header .nav-link.active {
+  color: #00bcd4 !important;
+}
+
+.dark-mode header .btn-outline-dark {
+  color: #e8eef6;
+  border-color: #e8eef6;
+}
+
+.dark-mode header .btn-outline-dark:hover {
+  background-color: #00bcd4;
+  color: #fff;
+  border-color: #00bcd4;
+}
+
+/* About Section */
+.dark-mode .about-us-section {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .about-us-section h1 {
+  /* color: #12afe4 !important; */
+}
+
+/* Main Content Sections */
+.dark-mode section {
+  background-color: #121212;
+  color: #e8eef6;
+}
+
+.dark-mode h2,
+.dark-mode h3 {
+  color: #f0f0f0;
+}
+
+.dark-mode p,
+.dark-mode .text-muted {
+  color: #c8c8c8 !important;
+}
+
+.dark-mode img.rounded,
+.dark-mode .shadow-sm {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Our Team Section */
+.dark-mode .bg-light {
+  background-color: #1a1a1a !important;
+  color: #e8eef6 !important;
+}
+
+.dark-mode .btn-outline-dark {
+  color: #e8eef6 !important;
+  border-color: #e8eef6 !important;
+}
+
+.dark-mode .btn-outline-dark:hover {
+  background-color: #00bcd4 !important;
+  border-color: #00bcd4 !important;
+  color: #fff !important;
+}
+
+/* Gallery / Carousel */
+.dark-mode .carousel {
+  background-color: #181818;
+}
+
+.dark-mode .carousel-item img {
+  border: 1px solid #2b2d30;
+}
+
+.dark-mode .carousel-control-prev-icon,
+.dark-mode .carousel-control-next-icon {
+  filter: invert(1) brightness(1.2);
+}
+
+.dark-mode .carousel-indicators button {
+  background-color: #00bcd4 !important;
+  opacity: 0.6;
+}
+
+.dark-mode .carousel-indicators .active {
+  opacity: 1;
+}
+
+/* Footer */
+.dark-mode footer {
+  color: #e8eef6 !important;
+  border-top: 1px solid #2e2e2e;
+}
+
+.dark-mode footer a {
+  color: #12afe4 !important;
+}
+
+.dark-mode footer a:hover {
+  color: #76d4ff !important;
+}
+
+.dark-mode footer ion-icon {
+  color: #12afe4 !important;
+}
+
+/* Logo Contrast */
+.dark-mode .logo {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* General hover scaling fix in dark mode */
+.dark-mode .hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}

@@ -145,11 +145,6 @@ body.dark-mode {
   color: #f1f1f1;
 }
 
-.dark-mode .navbar,
-.dark-mode footer {
-  background-color: #1f1f1f !important;
-}
-
 .dark-mode .text-dark {
   color: #f1f1f1 !important;
 }
