@@ -140,6 +140,24 @@ nav {
   transform: scale(1.05);
 } */
 
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .navbar,
+.dark-mode footer {
+  background-color: #1f1f1f !important;
+}
+
+.dark-mode .text-dark {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .btn-outline-light {
+  border-color: #f1f1f1;
+}
+
 .grid {
   display: grid;
   column-gap: 64px;
