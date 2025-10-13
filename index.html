@@ -201,20 +201,19 @@
                 for you.
               </p>
 
-              <form class="row g-3 justify-content-center">
+              <form id="signupForm" class="row g-3 justify-content-center" novalidate>
                 <!-- Full Name -->
                 <div class="col-md-5">
                   <label for="full-name" class="form-label">Full Name</label>
                   <div class="input-group">
-                    <span class="input-group-text"
-                      ><ion-icon name="person-outline"></ion-icon
-                    ></span>
+                    <span class="input-group-text">
+                      <ion-icon name="person-outline"></ion-icon>
+                    </span>
                     <input
                       type="text"
                       id="full-name"
                       class="form-control"
                       placeholder="John Smith"
-                      required
                     />
                   </div>
                 </div>
@@ -223,25 +222,22 @@
                 <div class="col-md-5">
                   <label for="email" class="form-label">Email address</label>
                   <div class="input-group">
-                    <span class="input-group-text"
-                      ><ion-icon name="mail-outline"></ion-icon
-                    ></span>
+                    <span class="input-group-text">
+                      <ion-icon name="mail-outline"></ion-icon>
+                    </span>
                     <input
                       type="email"
                       id="email"
                       class="form-control"
                       placeholder="me@example.com"
-                      required
                     />
                   </div>
                 </div>
 
                 <!-- Select -->
                 <div class="col-md-10">
-                  <label for="select-where" class="form-label"
-                    >Where did you hear from us?</label
-                  >
-                  <select id="select-where" class="form-select" required>
+                  <label for="select-where" class="form-label">Where did you hear from us?</label>
+                  <select id="select-where" class="form-select">
                     <option value="">Choose one option</option>
                     <option value="friends">Friends & Family</option>
                     <option value="youtube">YouTube</option>
@@ -268,7 +264,7 @@
 
                 <!-- Submit Button -->
                 <div class="col-md-10 text-center mt-3">
-                  <button class="btn btn-mantis btn-lg px-5">
+                  <button type="submit" class="btn btn-mantis btn-lg px-5">
                     Sign Up Now
                   </button>
                 </div>
@@ -348,5 +344,8 @@
         sidebar.classList.toggle('d-none');
       });
     </script>
+
+    <script src="/scripts/form-validation"></script>
+
   </body>
 </html>
