@@ -889,3 +889,29 @@ main section {
   height: 24px;
   width: 24px;
 }
+.accordion-header {
+  background-color: #f8f9fa;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.accordion-header:hover {
+  background-color: #e2e6ea;
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 10px;
+}
+.accordion-header.active {
+  background-color: #d1e7dd;
+}
+.accordion-content p {
+  margin: 10px 0;
+}
