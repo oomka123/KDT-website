@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   --mantis: #7ac74f;
@@ -12,10 +12,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-html{
+html {
   height: 100%;
   margin: 0;
 }
@@ -30,15 +30,15 @@ body {
 }
 
 h1 {
-  font-size: 36px; 
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 28px; 
+  font-size: 28px;
 }
 
 p {
-  font-size: 18px; 
+  font-size: 18px;
 }
 body.dark-mode {
   background-color: #121212;
@@ -57,6 +57,111 @@ body.dark-mode {
 .dark-mode .btn-outline-light {
   border-color: #f1f1f1;
 }
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+.dark-mode .card .card-title {
+  color: #f9f9f9;
+}
+
+.dark-mode .card .card-text {
+  color: #dcdcdc;
+}
+
+.dark-mode .btn-mantis {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+}
+
+.dark-mode .btn-outline-mantis {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.dark-mode .btn-outline-mantis:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.dark-mode #cta .bg-light {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1;
+}
+
+.dark-mode #cta h2,
+.dark-mode #cta p,
+.dark-mode #cta label {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode #cta .form-control,
+.dark-mode #cta .form-select {
+  background-color: #2b2b2b;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+.dark-mode #cta .form-control::placeholder {
+  color: #b0b0b0;
+}
+
+.dark-mode #cta .input-group-text {
+  background-color: #333;
+  border: 1px solid #444;
+  color: #f1f1f1;
+}
+
+.dark-mode #cta .form-check-label {
+  color: #ddd;
+}
+
+.dark-mode #cta .btn-mantis {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+}
+
+.dark-mode #cta .btn-mantis:hover {
+  background-color: #23943e;
+}
+
+.dark-mode #cta {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .sidebar,
+.dark-mode aside.bg-light {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1;
+  border-right: 1px solid #333;
+}
+
+/* Заголовок в сайдбаре */
+.dark-mode .sidebar h3 {
+  color: #f9f9f9;
+}
+
+/* Ссылки в сайдбаре */
+.dark-mode .sidebar a {
+  color: #a8d5ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.dark-mode .sidebar a:hover {
+  color: #66b3ff;
+}
+
+/* Плавный переход при смене темы */
+.sidebar {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* Tablent styles (≤ 1024px) */
 @media (max-width: 1024px) {
   h1 {
@@ -73,23 +178,23 @@ body.dark-mode {
 /* Mobile styles (≤ 600px) */
 @media (max-width: 600px) {
   main section {
-    flex-direction: column;         
-    align-items: center;            
-    text-align: center;             
-    gap: 1.5rem;                    
-    padding: 2rem 1rem;             
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .text-content {
-    width: 90%;                     
-    margin: 0;                      
+    width: 90%;
+    margin: 0;
     padding: 1rem;
-    font-size: 0.9rem;              
+    font-size: 0.9rem;
     line-height: 1.6;
   }
 
   .food-image {
-    width: 180px;                   
+    width: 180px;
     height: 180px;
   }
 }
@@ -434,7 +539,7 @@ main section {
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02); 
+  transform: translateY(-10px) scale(1.02);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .card .card-body {
@@ -447,7 +552,7 @@ main section {
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .card h3 {
@@ -459,7 +564,7 @@ main section {
 .card p {
   margin: 0 1rem 1rem;
   color: #666;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .card-btn {
@@ -616,7 +721,7 @@ main {
 /* HEADER & NAVBAR */
 #header,
 .navbar-custom {
-  background-color: var(--prussian-blue) !important; 
+  background-color: var(--prussian-blue) !important;
 }
 
 .navbar-custom .navbar-brand,
@@ -639,9 +744,8 @@ main {
   filter: invert(1);
 }
 
-
 .logo {
-  height: 40px; 
+  height: 40px;
   width: auto;
 }
 
@@ -665,7 +769,7 @@ main section {
 
 .food-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .text-content {
@@ -709,7 +813,10 @@ main section {
 }
 
 /* BUTTONS */
-.card-btn, .btn-mantis, .btn-outline-mantis, .btn-argentinian {
+.card-btn,
+.btn-mantis,
+.btn-outline-mantis,
+.btn-argentinian {
   border-radius: 5px;
   padding: 0.7rem 1rem;
   font-weight: 500;
