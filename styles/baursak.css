@@ -165,6 +165,13 @@ body.dark-mode {
   background-color: var(--prussian-blue) !important;
 }
 
+.dark-mode footer {
+  background-color: #0f0f0f !important;
+  color: #e8eef6 !important;
+  border-top: 1px solid #2e2e2e;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
 .logo-col {
   display: flex;
   flex-direction: column;
@@ -326,3 +333,4 @@ p {
 .team-p {
   color: #f7f7ff;
 } */
+

@@ -31,9 +31,11 @@ body.dark-mode {
   color: #f1f1f1;
 }
 
-.dark-mode .navbar,
 .dark-mode footer {
-  background-color: #1f1f1f !important;
+  background-color: #0f0f0f !important;
+  color: #e8eef6 !important;
+  border-top: 1px solid #2e2e2e;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .dark-mode .text-dark {
@@ -264,3 +266,4 @@ main section {
     height: 180px;
   }
 }
+

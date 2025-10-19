@@ -206,9 +206,6 @@
 }
 
 /* 🌙 Qurt Section */
-.dark-mode .qurt-section {
-  background-color: #181818 !important;
-}
 
 .dark-mode .qurt-title {
   color: #00bcd4 !important;
@@ -231,6 +228,8 @@
 .dark-mode footer {
   background-color: #0f0f0f !important;
   color: #e8eef6 !important;
+  border-top: 1px solid #2e2e2e;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .dark-mode footer a {
@@ -256,3 +255,4 @@
   transition: background-color 0.4s ease, color 0.4s ease,
     border-color 0.3s ease;
 }
+

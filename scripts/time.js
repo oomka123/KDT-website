@@ -1,30 +1,22 @@
 const time = document.getElementById("time");
 
-const dynamicTime = () => {
+function dynamicTime(locale = navigator.language) {
     const today = new Date();
 
-    const day = today.getDate();
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
+    const options = {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    };
 
-    let hour = today.getHours();
-	if(hour < 10) {
-        hour = "0" + hour;
-    }
+    const formatter = new Intl.DateTimeFormat(locale, options);
 
-	let minutes = today.getMinutes();
-	if(minutes < 10) {
-        minutes = "0" + minutes;
-    }
+    time.textContent = formatter.format(today);
 
-	let seconds = today.getSeconds();
-	if(seconds < 10) { 
-        seconds = "0" + seconds;
-    }
-
-    time.textContent = `${day}.${month}.${year}, ${hour}:${minutes}:${seconds}`;
-
-    setTimeout(dynamicTime, 1000);
+    setTimeout(() => dynamicTime(locale), 1000);
 }
 
 dynamicTime();
