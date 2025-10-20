@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
   const popup = document.getElementById("dish-popup");
   const popupTitle = document.getElementById("popup-title");
@@ -72,3 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+=======
+// Select all "Learn More" buttons
+const learnMoreButtons = document.querySelectorAll(".btn-mantis.btn-sm");
+
+learnMoreButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // Find the card that button belongs to
+    const card = button.closest(".card");
+    const title = card.querySelector(".card-title").textContent;
+    const description = card.querySelector(".card-text").textContent;
+
+    // Show popup
+    alert(`${title}\n\n${description}`);
+  });
+});
+>>>>>>> 6dfd8d549b197cb34d0aa7c7dfc374f2c8f61ce7
