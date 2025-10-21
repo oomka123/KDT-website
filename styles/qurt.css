@@ -266,7 +266,7 @@
   transition: transform 0.3s ease;
 }
 .dark-mode .dish-container {
-  background-color: #202020;
+  background-color: #373030cc;
   padding: 30px 40px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);

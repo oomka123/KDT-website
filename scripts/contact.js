@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         feedback.textContent = "✅ Login successful!";
         feedback.style.color = "green";
         setTimeout(closePopup, 1500);
+        openBtn.style.opacity = 0;
+        openBtn.style.pointerEvents = "none";
       } else {
         feedback.textContent = "❌ Invalid credentials. Try again.";
         feedback.style.color = "red";
