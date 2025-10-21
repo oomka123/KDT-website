@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   --mantis: #7ac74f;
@@ -12,19 +12,26 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   background-color: var(--ghost-white);
   color: var(--prussian-blue);
   line-height: 1.6;
 }
 
-h1 { font-size: 36px; }
-h2 { font-size: 28px; }
-p  { font-size: 18px; }
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 28px;
+}
+p {
+  font-size: 18px;
+}
 
 body.dark-mode {
   background-color: #121212;
@@ -46,29 +53,35 @@ body.dark-mode {
   border-color: #f1f1f1;
 }
 @media (max-width: 1024px) {
-  h1 { font-size: 28px; }
-  h2 { font-size: 22px; }
-  p  { font-size: 16px; }
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  p {
+    font-size: 16px;
+  }
 }
 @media (max-width: 600px) {
   main section {
-    flex-direction: column;         
-    align-items: center;            
-    text-align: center;             
-    gap: 1.5rem;                    
-    padding: 2rem 1rem;             
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .text-content {
-    width: 90%;                     
-    margin: 0;                      
+    width: 90%;
+    margin: 0;
     padding: 1rem;
-    font-size: 0.9rem;              
+    font-size: 0.9rem;
     line-height: 1.6;
   }
 
   .food-image {
-    width: 180px;                   
+    width: 180px;
     height: 180px;
   }
 }
@@ -76,7 +89,7 @@ body.dark-mode {
 /* HEADER & NAVBAR */
 #header,
 .navbar-custom {
-  background-color: var(--prussian-blue) !important; 
+  background-color: var(--prussian-blue) !important;
 }
 
 .navbar-custom .navbar-brand,
@@ -99,9 +112,8 @@ body.dark-mode {
   filter: invert(1);
 }
 
-
 .logo {
-  height: 40px; 
+  height: 40px;
   width: auto;
 }
 
@@ -125,7 +137,7 @@ main section {
 
 .food-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .text-content {
@@ -169,7 +181,10 @@ main section {
 }
 
 /* BUTTONS */
-.card-btn, .btn-mantis, .btn-outline-mantis, .btn-argentinian {
+.card-btn,
+.btn-mantis,
+.btn-outline-mantis,
+.btn-argentinian {
   border-radius: 5px;
   padding: 0.7rem 1rem;
   font-weight: 500;
@@ -267,3 +282,31 @@ main section {
   }
 }
 
+.dish-container {
+  background-color: #ffffffd9;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode .dish-container {
+  background-color: #202020;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dish-container:hover {
+  transform: translateY(-5px);
+}
+
+* {
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.3s ease;
+}

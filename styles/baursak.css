@@ -240,6 +240,40 @@ body.dark-mode {
   color: #f7f7ff;
 }
 
+.dish-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: #fffaf2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.dish-container:hover {
+  transform: scale(1.02);
+}
+
+.dishName {
+  font-size: 2rem;
+  color: #a0522d;
+  font-weight: bold;
+}
+
+.dishType,
+.dishIngredients,
+.dishDesc {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+#infoBtn {
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
 /* .container {
   max-width: 1200px;
   padding: 0 320px;
@@ -334,3 +368,7 @@ p {
   color: #f7f7ff;
 } */
 
+* {
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.3s ease;
+}
