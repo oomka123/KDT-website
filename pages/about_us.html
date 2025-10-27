@@ -37,38 +37,47 @@
         <img src="../images/logo.png" alt="KDT Logo" class="logo" />
       </div>
 
-      <nav
-          class="navbar navbar-expand-lg navbar-dark navbar-custom w-auto"
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w-auto">
+        <div
+          class="container-fluid d-flex flex-column flex-lg-row align-items-center p-0"
         >
-          <div class="container-fluid d-flex flex-column flex-lg-row align-items-center p-0">
-            <!-- Hamburger button -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <!-- Hamburger button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-              <ul class="navbar-nav ms-lg-auto text-center">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="about_us.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="list.html">Foods</a></li>
-                <li class="nav-item">
-                  <button id="theme-toggle" class="btn btn-outline-dark ms-1">
-                    🌙
-                  </button>
-                </li>
-              </ul>
-            </div>
+          <!-- Navbar links -->
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav ms-lg-auto text-center">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="about_us.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="list.html">Foods</a>
+              </li>
+              <li class="nav-item">
+                <button id="theme-toggle" class="btn btn-outline-dark ms-1">
+                  🌙
+                </button>
+              </li>
+            </ul>
           </div>
-        </nav>
+        </div>
+      </nav>
     </header>
 
     <main>
@@ -101,8 +110,8 @@
             </div>
             <div class="col-md-6">
               <img
-                src="../images/our_img_1.jpg"
-                class="img-fluid rounded shadow-sm"
+                data-src="../images/our_img_1.jpg"
+                class="img-fluid rounded shadow-sm lazy-img"
                 alt="Our why"
               />
             </div>
@@ -123,8 +132,8 @@
             </div>
             <div class="col-md-6">
               <img
-                src="../images/our_img_2.jpg"
-                class="img-fluid rounded shadow-sm"
+                data-src="../images/our_img_2.jpg"
+                class="img-fluid rounded shadow-sm lazy-img"
                 alt="Our approach"
               />
             </div>
@@ -146,8 +155,8 @@
             </div>
             <div class="col-md-6">
               <img
-                src="../images/our_img_3.jpeg"
-                class="img-fluid rounded shadow-sm"
+                data-src="../images/our_img_3.jpeg"
+                class="img-fluid rounded shadow-sm lazy-img"
                 alt="Our Kazakh essentials"
               />
             </div>
@@ -510,8 +519,12 @@
         </div>
       </div>
     </footer>
+    <!-- jQuery (required for search, autocomplete, and highlight) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <script src="../scripts/time.js"></script>
     <script src="../scripts/themes.js"></script>
     <script src="../scripts/greeting.js"></script>
+    <script src="../scripts/lazy-loading.js"></script>
   </body>
 </html>

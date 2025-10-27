@@ -1,40 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("signupForm");
+$(document).ready(function () {
+  const form = $("#signupForm");
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault(); // stop page reload
+  form.on("submit", function (event) {
+    event.preventDefault(); // Stopping page reloading
 
-    // Get input values
-    const fullName = document.getElementById("full-name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const select = document.getElementById("select-where").value;
+    // Getting the values
+    const fullName = $("#full-name").val().trim();
+    const email = $("#email").val().trim();
+    const select = $("#select-where").val();
 
-    // Remove old errors
-    document.querySelectorAll(".error-message").forEach((el) => el.remove());
-    document.querySelectorAll("input, select").forEach((el) => {
-      el.classList.remove("is-invalid");
-    });
+    // Удаляем старые ошибки
+    $(".error-message").remove();
+    $("input, select").removeClass("is-invalid");
 
     let isValid = true;
 
-    // Helper to show error
+    // Error display function under the field
     function showError(id, message) {
-      const input = document.getElementById(id);
-      const error = document.createElement("div");
-      error.className = "error-message text-danger mt-1";
-      error.textContent = message;
+      const input = $("#" + id);
+      const error = $(
+        '<div class="error-message text-danger mt-1"></div>'
+      ).text(message);
 
-      if (input.parentNode.classList.contains("input-group")) {
-        input.parentNode.parentNode.appendChild(error);
+      if (input.parent().hasClass("input-group")) {
+        input.parent().parent().append(error);
       } else {
-        input.parentNode.appendChild(error);
+        input.parent().append(error);
       }
 
-      input.classList.add("is-invalid");
+      input.addClass("is-invalid");
       isValid = false;
     }
 
-    // Validate fields
     if (!fullName) showError("full-name", "Full name is required.");
 
     if (!email) showError("email", "Email is required.");
@@ -43,10 +40,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!select) showError("select-where", "Please select an option.");
 
-    // If valid, success alert
-    if (isValid) {
-      alert("✅ Form submitted successfully!");
-      form.reset();
+    // If invalid, an error notification
+    if (!isValid) {
+      showNotification("❌ Please fix the errors and try again.", "error");
+      return;
     }
+
+    // If everything is correct
+    showNotification("✅ Form submitted successfully!", "success");
+    form.trigger("reset");
   });
+
+  // Notification function
+  function showNotification(message, type = "success") {
+    const container = $("#notification-container");
+    const colors = {
+      success: "#28a745",
+      error: "#dc3545",
+      info: "#0d6efd",
+    };
+
+    const notification = $("<div class='notification'></div>")
+      .text(message)
+      .css("background-color", colors[type]);
+
+    container.append(notification);
+
+    // Smooth appearance
+    setTimeout(() => notification.addClass("show"), 10);
+
+    // Disappearing after 3 seconds
+    setTimeout(() => {
+      notification.removeClass("show");
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
+  }
 });

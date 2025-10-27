@@ -88,16 +88,15 @@
             <p class="dishType"></p>
             <p class="dishIngredients"></p>
             <p class="dishDesc"></p>
-            <button id="infoBtn" type="button" class="btn btn-info">
-              Show more
-            </button>
+            <div class="mt-3">
+              <button id="infoBtn" type="button" class="btn btn-info me-2">
+                Show more
+              </button>
+              <button id="copyBtn" class="btn btn-outline-secondary">
+                Copy
+              </button>
+            </div>
           </div>
-          <!-- <p class="qurt-text">
-            Qurt is made from strained yogurt, drained buttermilk (in
-            particular, drained qatiq) or drained sour milk by shaping it and
-            letting it dry. It can be made in a variety of forms: rolled into
-            balls, sliced into strips, and formed into chunks.
-          </p> -->
         </div>
 
         <div class="col-12 col-md-6 d-flex justify-content-center">
@@ -106,6 +105,8 @@
           </div>
         </div>
       </div>
+
+      <div id="copyNotification" class="notification">Copied to clipboard!</div>
     </main>
 
     <footer
@@ -171,9 +172,15 @@
         </div>
       </div>
     </footer>
+
+    <!-- jQuery (required for search, autocomplete, and highlight) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <script src="../scripts/time.js"></script>
     <script src="../scripts/themes.js"></script>
     <script src="../scripts/greeting.js"></script>
     <script src="../objects/qurt_obj.js"></script>
+
+    <script src="../scripts/copy.js"></script>
   </body>
 </html>
