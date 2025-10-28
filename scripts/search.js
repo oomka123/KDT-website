@@ -1,61 +1,33 @@
-// scripts/search.js
-// Task 1: Real-time filter for cards and FAQ
-
-(function () {
+$(function () {
 	const $input = $('#live-search');
-	if ($input.length === 0) return;
+	if (!$input.length) return;
 
 	const $cards = $('#card-section .card');
-	const $faqItems = $('#faq .accordion-item');
+	const $faq = $('#faq .accordion-item');
 
-	const normalize = (s) => (s || '').toLowerCase().trim();
+	const normalize = s => (s || '').toLowerCase().trim();
 
-	function filterCards(query) {
+	function filter($elements, selector, query) {
 		const q = normalize(query);
-		$cards.each(function () {
-			const $card = $(this);
-			const hay = ($card.find('.card-title').text() + ' ' + $card.find('.card-text').text()).toLowerCase();
-			if (q && !hay.includes(q)) {
-				$card.hide();
-			} else {
-				$card.show();
-			}
+		$elements.each(function () {
+			const text = $(this).find(selector).text().toLowerCase();
+			$(this).toggle(!q || text.includes(q));
 		});
 	}
 
-	function filterFaq(query) {
-		const q = normalize(query);
-		$faqItems.each(function () {
-			const $item = $(this);
-			const hay = ($item.find('.accordion-header').text() + ' ' + $item.find('.accordion-content').text()).toLowerCase();
-			if (q && !hay.includes(q)) {
-				$item.hide();
-			} else {
-				$item.show();
-			}
-		});
-	}
+	// Small delay for smoother typing
+	let timer;
+	$input.on('input', function () {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			const q = $(this).val();
+			filter($cards, '.card-title, .card-text', q);
+			filter($faq, '.accordion-header, .accordion-content', q);
+			$(document).trigger('live-search:changed', { query: q });
+		}, 80);
+	});
 
-	function debounce(fn, delay = 120) {
-		let t;
-		return function (...args) {
-			clearTimeout(t);
-			t = setTimeout(() => fn.apply(this, args), delay);
-		};
-	}
-
-	const onType = debounce(function (e) {
-		const q = e.target.value;
-		filterCards(q);
-		filterFaq(q);
-
-		// Let other modules (autocomplete, highlight) react too
-		$(document).trigger('live-search:changed', { query: q });
-	}, 60);
-
-	$input.on('input', onType);
-
-	// Ensure visible on load
-	filterCards('');
-	filterFaq('');
-})();
+	// Initial show
+	filter($cards, '.card-title, .card-text', '');
+	filter($faq, '.accordion-header, .accordion-content', '');
+});

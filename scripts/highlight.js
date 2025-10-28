@@ -1,68 +1,70 @@
 // scripts/highlight.js
-// Task 3: Highlight matches across page sections
+// Robust highlight logic for cards and FAQ (jQuery)
 
-(function () {
-	const $highlightInput = $('#highlight-search');
-	const $clearBtn = $('#clear-highlights');
+$(function () {
+	const $input = $('#highlight-search');
+	const $clear = $('#clear-highlights');
 
-	// Elements to highlight in
-	let $targets = $('#card-section .card-title')
-		.add('#card-section .card-text')
-		.add('#faq .accordion-header')
-		.add('#faq .accordion-content');
+	// Combined selector for everything we might highlight
+	const $targets = $('#card-section .card-title, #card-section .card-text, #faq .accordion-header, #faq .accordion-content');
 
-	// Preserve original HTML to avoid nested marks
+	// Store original HTML for each element to prevent nested <mark>
 	const originals = new Map();
 	$targets.each(function () {
 		originals.set(this, $(this).html());
 	});
 
+	// Safe escape for regex
 	function escapeRegExp(str) {
-		return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 	}
 
-	function clearHighlights() {
+	// Reset to original HTML
+	function resetHighlights() {
 		$targets.each(function () {
-			const initial = originals.get(this);
-			if (initial != null) $(this).html(initial);
+			const orig = originals.get(this);
+			if (orig !== undefined) $(this).html(orig);
 		});
 	}
 
+	// Apply highlight for query
 	function applyHighlights(query) {
-		const q = (query || '').trim();
-		clearHighlights();
+		resetHighlights();
+		const q = (query || '').toString().trim();
 		if (!q) return;
 
-		// Case-insensitive find all occurrences
-		// For whole-word matching, use: new RegExp(`\\b(${escapeRegExp(q)})\\b`, 'gi')
 		const re = new RegExp(`(${escapeRegExp(q)})`, 'gi');
 
 		$targets.each(function () {
-			const clean = originals.get(this) ?? $(this).html();
-			$(this).html(clean.replace(re, '<mark class="highlight">$1</mark>'));
+			const orig = originals.get(this) ?? $(this).html();
+			// Use the saved original HTML to avoid nested marks
+			const replaced = (orig || '').replace(re, '<mark class="highlight">$1</mark>');
+			$(this).html(replaced);
 		});
 	}
 
-	// Manual highlight typing
-	if ($highlightInput.length) {
-		$highlightInput.on('input', function (e) {
-			applyHighlights(e.target.value);
+	// Typing in highlight box (if present)
+	if ($input.length) {
+		$input.on('input', function () {
+			applyHighlights($(this).val());
 		});
 	}
 
-	// Clear button
-	if ($clearBtn.length) {
-		$clearBtn.on('click', function () {
-			if ($highlightInput.length) $highlightInput.val('');
-			clearHighlights();
+	// Clear button behaviour (if present)
+	if ($clear.length) {
+		$clear.on('click', function () {
+			if ($input.length) $input.val('');
+			resetHighlights();
 		});
 	}
 
-	// Mirror live-search when highlight field is empty
-	$(document).on('live-search:changed', function (e) {
-		if (!$highlightInput.length) return;
-		if (!$highlightInput.val().trim()) {
-			applyHighlights(e.detail?.query || '');
-		}
+	// Listen for the app-wide search change event.
+	// jQuery .trigger('event', { query: '...' }) passes that object as a second param.
+	$(document).on('live-search:changed', function (e, data) {
+		// If user is manually typing into the highlight box, don't override their input
+		if ($input.length && $input.val().toString().trim()) return;
+
+		const q = (data && data.query) || '';
+		applyHighlights(q);
 	});
-})();
+});
