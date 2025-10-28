@@ -9,7 +9,7 @@ $(document).ready(function () {
     const email = $("#email").val().trim();
     const select = $("#select-where").val();
 
-    // Удаляем старые ошибки
+    // Deleting old errors
     $(".error-message").remove();
     $("input, select").removeClass("is-invalid");
 
