@@ -41,6 +41,7 @@
     <script defer src="scripts/contact.js"></script>
     <script defer src="scripts/popup.js"></script>
     <script defer src="scripts/sidebar.js"></script>
+    <script defer src="scripts/bar.js"></script>
   </head>
   <body>
     <div class="container-fluid p-0">
@@ -131,6 +132,16 @@
           </div>
         </nav>
       </header>
+
+      <!-- Profile Popup -->
+      <div id="profile-popup" class="popup-overlay" style="display: none">
+        <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h3>User Info</h3>
+          <p><strong>Nickname:</strong> <span id="profile-nick"></span></p>
+          <p><strong>Password:</strong> <span id="profile-pass"></span></p>
+        </div>
+      </div>
 
       <!-- SIDEBAR + MAIN -->
       <!-- SIDEBAR -->
@@ -509,7 +520,12 @@
           <h3>Login</h3>
           <div class="mb-3">
             <label for="nickname" class="form-label">Nickname</label>
-            <input type="text" id="nickname" class="form-control" required />
+            <input
+              type="text"
+              id="login-nickname"
+              class="form-control"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
@@ -535,7 +551,7 @@
     </div>
 
     <div id="notification-container"></div>
-
+    <div id="scroll-progress"></div>
     <!-- Bootstrap JS -->
   </body>
 </html>

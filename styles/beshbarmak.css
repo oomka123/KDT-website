@@ -330,3 +330,14 @@ main section {
   opacity: 1;
   transform: translateY(0);
 }
+/* Прогресс-бар сверху */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* толщина линии */
+  width: 0%;
+  background: linear-gradient(90deg, #28a745, #80ed99);
+  z-index: 9999;
+  transition: width 0.15s ease-out;
+}

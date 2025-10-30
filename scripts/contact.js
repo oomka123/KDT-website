@@ -1,4 +1,17 @@
 $(document).ready(function () {
+  let hideTimeout;
+
+  $("#user-btn").on("mouseenter", function () {
+    clearTimeout(hideTimeout); // отменяем таймер, если пользователь вернулся
+    $("#logout-btn").fadeIn(150);
+  });
+
+  $("#user-container").on("mouseleave", function () {
+    hideTimeout = setTimeout(() => {
+      $("#logout-btn").fadeOut(300);
+    }, 1000); // ждёт 2 секунды после ухода курсора
+  });
+
   // Быстрый debug-индикатор
   console.log("contact.js loaded");
 
@@ -42,6 +55,29 @@ $(document).ready(function () {
 
   updateLoginStatus();
 
+  // === Popup при нажатии на ник ===
+  $(document).on("click", "#user-btn", function () {
+    const nickname = localStorage.getItem("nickname") || "(not set)";
+    const password = localStorage.getItem("password") || "(not set)";
+
+    $("#profile-nick").text(nickname);
+    $("#profile-pass").text(password);
+
+    $("#profile-popup").fadeIn(200);
+  });
+
+  // === Закрытие popup ===
+  $(document).on("click", "#profile-popup .popup-close", function () {
+    $("#profile-popup").fadeOut(200);
+  });
+
+  // Закрыть по клику на фон
+  $(document).on("click", function (e) {
+    if ($(e.target).is("#profile-popup")) {
+      $("#profile-popup").fadeOut(200);
+    }
+  });
+
   // === Открытие / Закрытие popup ===
   // используем делегированные обработчики, чтобы сработало в любом случае
   $(document).on("click", "#login-btn", function () {
@@ -63,14 +99,12 @@ $(document).ready(function () {
   });
 
   // === Логин ===
+  // === Логин ===
   $(document).on("submit", "#login-form", function (e) {
     e.preventDefault();
-    const nickname = $("#login-popup #nickname").val()
-      ? $("#login-popup #nickname").val().trim()
-      : "";
-    const password = $("#login-popup #password").val()
-      ? $("#login-popup #password").val().trim()
-      : "";
+
+    const nickname = $("#login-nickname").val().trim();
+    const password = $("#password").val().trim();
 
     console.log("Attempt login with:", {
       nickname,
@@ -88,8 +122,10 @@ $(document).ready(function () {
 
     localStorage.setItem("nickname", nickname);
     localStorage.setItem("password", password);
-    if (loginPopup.length) loginPopup.fadeOut(200);
-    if (loginForm.length) loginForm.trigger("reset");
+
+    if ($("#login-popup").length) $("#login-popup").fadeOut(200);
+    if ($("#login-form").length) $("#login-form").trigger("reset");
+
     updateLoginStatus();
   });
 

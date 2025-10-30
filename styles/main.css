@@ -1,12 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* GLOBAL */
 :root {
-    --mantis: #7AC74F;
-    --argentinian-blue: #4BB3FD;
-    --ghost-white: #F7F7FF;
-    --prussian-blue: #0B3954;
-    --light-brown: #f5d87f;
-    --font-roboto: 'Roboto', sans-serif;
-} 
-/* GLOBAL */
+  --mantis: #7ac74f;
+  --argentinian-blue: #4bb3fd;
+  --ghost-white: #f7f7ff;
+  --prussian-blue: #0b3954;
+  --light-brown: #f5d87f;
+  --font-roboto: "Roboto", sans-serif;
+}
+/* GLOBAL */ /* Прогресс-бар сверху */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* толщина линии */
+  width: 0%;
+  background: linear-gradient(90deg, #28a745, #80ed99);
+  z-index: 9999;
+  transition: width 0.15s ease-out;
+}

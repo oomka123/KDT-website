@@ -1359,12 +1359,11 @@ main {
   cursor: pointer;
 }
 
-/* Hover logout bubble */
 #logout-btn {
   position: absolute;
   top: 110%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-45%);
   background: white;
   color: black;
   border: 1px solid #ccc;
@@ -1376,6 +1375,29 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-#user-container:hover #logout-btn {
-  display: block;
+#profile-popup .popup-content {
+  background: white;
+  color: black;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+#profile-popup p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Прогресс-бар сверху */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* толщина линии */
+  width: 0%;
+  background: linear-gradient(90deg, #28a745, #80ed99);
+  z-index: 9999;
+  transition: width 0.15s ease-out;
 }
