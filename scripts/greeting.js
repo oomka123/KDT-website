@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const greeting = document.getElementById("greeting");
-  const time = document.getElementById("time");
+  const time = document.getElementById("time_time");
 
   function updateGreetingAndTime() {
     const now = new Date();
@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hour < 12) message = "🌞 Good morning!";
     else if (hour < 18) message = "🌤️ Good afternoon!";
     else message = "🌙 Good evening!";
-
 
     const formattedTime = now.toLocaleTimeString();
 

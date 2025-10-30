@@ -46,7 +46,7 @@
 }
 
 .logo {
-  height: 54px;
+  height: 40px;
 }
 
 /* HEADER */
@@ -325,15 +325,114 @@
 }
 
 @keyframes loader {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(180deg); }
-  50%  { transform: rotate(180deg); }
-  75%  { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes loader-inner {
-  0%, 25%   { height: 0%; }
-  50%, 75%  { height: 100%; }
-  100%      { height: 0%; }
+  0%,
+  25% {
+    height: 0%;
+  }
+  50%,
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+/* api fetch */
+
+/* Контейнер, где будут появляться карточки */
+#tapestryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 80px;
+  justify-content: center;
+}
+
+/* Карточка каждой кухни */
+.cuisineContainer {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* cursor: pointer; */
+}
+
+/* При наведении */
+.cuisineContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок */
+.cuisineContainer h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Описание */
+.cuisineContainer p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Кнопка "See More" */
+#seeMore {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #324d84;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#seeMore:hover {
+  background-color: #243464;
+}
+
+/* Лоадер */
+/* #loadingSpinner {
+  display: none;
+  margin: 20px auto;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  animation: spin 1s linear infinite;
+} */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

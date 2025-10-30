@@ -162,7 +162,71 @@ body.dark-mode {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark-mode .sidebar,
+/* Overlay Sidebar */
+/* .sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #eaeaea;
+  padding: 1.5rem; 
+  z-index: 1050;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); 
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+} */
+
+.sidebar-overlay {
+  position: fixed; /* Остается на месте при скролле */
+  top: 150px; /* Отступ от шапки */
+  left: 20px; /* Отступ слева */
+  height: auto; /* Высота по содержимому */
+  max-height: 70vh; /* Не больше 70% высоты окна */
+  width: 250px; /* Ширина блока */
+  background-color: #eaeaea;
+  padding: 1.5rem;
+  z-index: 1050;
+  overflow-y: auto; /* Скролл внутри блока, если элементов много */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 10px; /* Скругленные углы */
+  transform: translateX(-110%); /* скрыт по умолчанию */
+  transition: transform 0.3s ease;
+}
+
+/* Dark mode */
+.dark-mode .sidebar-overlay {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+.dark-mode .sidebar-overlay a {
+  color: #a8d5ff;
+}
+
+.dark-mode .sidebar-overlay a:hover {
+  color: #66b3ff;
+}
+
+/* Появление */
+.sidebar-overlay.show {
+  transform: translateX(0);
+}
+
+/* Ссылки внутри */
+.sidebar-overlay a {
+  display: block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: var(--prussian-blue);
+  transition: color 0.3s ease;
+}
+
+.sidebar-overlay a:hover {
+  color: var(--ut-orange);
+}
+/* .dark-mode .sidebar,
 .dark-mode aside.bg-light {
   background-color: #1e1e1e !important;
   color: #f1f1f1;
@@ -181,7 +245,7 @@ body.dark-mode {
 
 .dark-mode .sidebar a:hover {
   color: #66b3ff;
-}
+} */
 
 .accordion-header {
   background-color: #fff;
@@ -236,9 +300,9 @@ body.dark-mode {
   background-color: #222 !important;
   color: #f0f0f0;
 }
-.sidebar {
+/* .sidebar {
   transition: background-color 0.3s ease, color 0.3s ease;
-}
+} */
 
 /* Tablent styles (≤ 1024px) */
 @media (max-width: 1024px) {
@@ -271,10 +335,36 @@ body.dark-mode {
     line-height: 1.6;
   }
 
-  .food-image {
-    width: 180px;
-    height: 180px;
+  .food-image-wrapper {
+    width: 100%;
+    height: 300px; /* фиксированная высота блока */
+    overflow: hidden; /* обрезаем лишнее */
+    border-radius: 0.5rem;
+    position: relative;
   }
+
+  #foodImage {
+    width: 100%;
+    height: 100%; /* растягиваем по контейнеру */
+    object-fit: cover; /* обрезка и сохранение пропорций */
+    display: block;
+    transition: opacity 0.5s ease;
+  }
+}
+.food-image-wrapper {
+  width: 100%;
+  height: 300px; /* фиксированная высота блока */
+  overflow: hidden; /* обрезаем лишнее */
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+#foodImage {
+  width: 100%;
+  height: 100%; /* растягиваем по контейнеру */
+  object-fit: cover; /* обрезка и сохранение пропорций */
+  display: block;
+  transition: opacity 0.5s ease;
 }
 
 /* #header {
@@ -382,10 +472,6 @@ main section {
   object-fit: cover;
 
   border: 4px solid var(--mantis);
-}
-
-#foodImage {
-  transition: opacity 1s ease-in-out;
 }
 
 .text-content {
@@ -670,11 +756,11 @@ main section {
   grid-area: header;
 }
 
-.sidebar {
+/* .sidebar {
   grid-area: sidebar;
   background-color: #eaeaea;
   padding: 1rem;
-}
+} */
 
 main {
   grid-area: main;
@@ -684,7 +770,7 @@ main {
   grid-area: footer;
 }
 
-.sidebar h3 {
+/* .sidebar h3 {
   margin-bottom: 1rem;
   color: var(--prussian-blue);
 }
@@ -707,12 +793,12 @@ main {
 
 .sidebar a:hover {
   color: var(--ut-orange);
-}
+} */
 /* Hide sidebar */
-.hidden-sidebar {
+/* .hidden-sidebar {
   transform: translateX(-100%);
   transition: transform 0.3s ease;
-}
+} */
 
 /* Expand main content */
 .expanded-main {
@@ -720,15 +806,12 @@ main {
   transition: grid-column 0.3s ease;
 }
 
-/* Optional toggle button style */
-#sidebar-toggle {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: var(--mantis);
-  cursor: pointer;
-  margin-left: 1rem;
+/* Чтобы основной контент был по центру */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 /*
 @media (max-width: 1024px) {
   .card-section {
@@ -804,6 +887,12 @@ main {
 #header,
 .navbar-custom {
   background-color: var(--prussian-blue) !important;
+}
+
+.navbar-nav li:nth-child(4) {
+  margin-left: 2rem; /* расстояние между группами */
+  border-left: 1px solid rgba(255, 255, 255, 0.3); /* тонкая линия как разделитель */
+  padding-left: 1rem; /* чтобы текст не прилипал к линии */
 }
 
 .navbar-custom .navbar-brand,
@@ -1158,7 +1247,7 @@ main section {
 }
 
 .ratingContainer {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: -20px;
 }
 
@@ -1184,4 +1273,58 @@ main {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
   }
+}
+/* Sidebar dark mode */
+.dark-mode .sidebar-overlay {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1;
+  border-left: 1px solid #333;
+}
+
+.dark-mode .sidebar-overlay h3 {
+  color: #f9f9f9;
+}
+
+.dark-mode .sidebar-overlay a {
+  color: #a8d5ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.dark-mode .sidebar-overlay a:hover {
+  color: #66b3ff;
+}
+
+/* Search tools dark mode */
+.dark-mode #search-tools {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #f1f1f1;
+}
+
+.dark-mode #search-tools label,
+.dark-mode #search-tools small {
+  color: #d1d1d1;
+}
+
+.dark-mode #search-tools input.form-control {
+  background-color: #3a3a3a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+.dark-mode #search-tools input.form-control::placeholder {
+  color: #aaa;
+}
+
+.dark-mode #search-tools .btn-outline-secondary {
+  color: #f1f1f1;
+  border-color: #555;
+}
+
+.dark-mode #search-tools .btn-outline-secondary:hover {
+  background-color: #444;
+  border-color: #777;
+  color: #fff;
 }

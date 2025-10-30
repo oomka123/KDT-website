@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("login-btn");
+  const loginContainer = document.getElementById("login-container");
+  const userContainer = document.getElementById("user-container");
+  const userNick = document.getElementById("user-nick");
+  const logoutBtn = document.getElementById("logout-btn");
+
   const popup = document.getElementById("login-popup");
-  const openBtn = document.getElementById("login-btn");
   const closeBtn = popup.querySelector(".popup-close");
   const steps = popup.querySelectorAll(".login-step");
   const nextBtn = popup.querySelector(".next-btn");
@@ -10,20 +15,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let step = 0;
 
-  // Show a specific step
+  // === Авторизация через localStorage ===
+  function updateUI() {
+    const user = localStorage.getItem("userNick");
+    if (user) {
+      loginContainer.style.display = "none";
+      userContainer.style.display = "block";
+      userNick.textContent = user;
+    } else {
+      loginContainer.style.display = "block";
+      userContainer.style.display = "none";
+    }
+  }
+
+  updateUI();
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("userNick");
+    updateUI();
+  });
+
+  // === Popup login ===
   function showStep(index) {
     steps.forEach((s, i) => s.classList.toggle("active", i === index));
     step = index;
   }
 
-  // Open popup
-  openBtn.onclick = () => {
+  loginBtn.onclick = () => {
     popup.style.display = "flex";
     showStep(0);
     refreshStatus();
   };
 
-  // Close popup
   const closePopup = () => {
     popup.style.display = "none";
     form.reset();
@@ -31,41 +54,41 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   closeBtn.onclick = closePopup;
 
-  // Refresh feedback text
   function refreshStatus() {
     feedback.textContent = "";
     feedback.style.color = "";
   }
 
-  // Navigation buttons
   nextBtn.onclick = () => showStep(step + 1);
   backBtn.onclick = () => showStep(step - 1);
 
-  // Submit login form
   form.onsubmit = (e) => {
     e.preventDefault();
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
+    const nick = document.getElementById("login-nick").value || "User";
 
     refreshStatus();
     feedback.textContent = "⏳ Checking...";
     feedback.style.color = "blue";
 
     setTimeout(() => {
-      if (email === "test@example.com" && password === "12345") {
+      // Простейшая проверка (можно заменить на регистрацию)
+      if (email && password) {
         feedback.textContent = "✅ Login successful!";
         feedback.style.color = "green";
-        setTimeout(closePopup, 1500);
-        openBtn.style.opacity = 0;
-        openBtn.style.pointerEvents = "none";
+        localStorage.setItem("userNick", nick); // сохраняем ник
+        setTimeout(() => {
+          closePopup();
+          updateUI();
+        }, 1000);
       } else {
-        feedback.textContent = "❌ Invalid credentials. Try again.";
+        feedback.textContent = "❌ Invalid credentials.";
         feedback.style.color = "red";
       }
     }, 1000);
   };
 
-  // ESC to close
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && popup.style.display === "flex") {
       closePopup();
