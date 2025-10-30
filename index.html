@@ -96,33 +96,25 @@
 
               <!-- Вторая группа -->
               <ul class="navbar-nav text-center">
+                <!-- Login button -->
                 <li class="nav-item" id="login-container">
                   <button id="login-btn" class="btn btn-outline-light ms-1">
                     Login
                   </button>
                 </li>
 
+                <!-- User nickname + hover logout -->
                 <li
-                  class="nav-item dropdown"
+                  class="nav-item"
                   id="user-container"
-                  style="display: none"
+                  style="display: none; position: relative"
                 >
-                  <button
-                    class="btn btn-outline-light ms-1 dropdown-toggle"
-                    id="user-btn"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
+                  <button id="user-btn" class="btn btn-outline-light ms-1">
                     <span id="user-nick"></span>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="user-btn">
-                    <li>
-                      <button class="dropdown-item" id="logout-btn">
-                        Log Out
-                      </button>
-                    </li>
-                  </ul>
+                  <button id="logout-btn">Logout</button>
                 </li>
+
                 <li class="nav-item">
                   <button id="theme-toggle" class="btn btn-outline-light ms-1">
                     🌙
@@ -511,49 +503,27 @@
 
     <!-- Login Popup -->
     <div id="login-popup" class="popup-overlay" style="display: none">
-      <div class="popup-content login-popup">
+      <div class="popup-content">
         <span class="popup-close">&times;</span>
         <form id="login-form">
-          <!-- Step 1 -->
-          <div class="login-step active">
-            <h3>Step 1: Enter Email</h3>
-            <div class="mb-3">
-              <label for="login-email" class="form-label">Email address</label>
-              <input
-                type="email"
-                id="login-email"
-                class="form-control"
-                placeholder="me@example.com"
-                required
-              />
-            </div>
-            <button type="button" class="btn btn-mantis next-btn">Next</button>
+          <h3>Login</h3>
+          <div class="mb-3">
+            <label for="nickname" class="form-label">Nickname</label>
+            <input type="text" id="nickname" class="form-control" required />
           </div>
-          <!-- Step 2 -->
-          <div class="login-step">
-            <h3>Step 2: Enter Password</h3>
-            <div class="mb-3">
-              <label for="login-password" class="form-label">Password</label>
-              <input
-                type="password"
-                id="login-password"
-                class="form-control"
-                placeholder="********"
-                required
-              />
-            </div>
-            <div class="d-flex justify-content-between">
-              <button type="button" class="btn btn-secondary back-btn">
-                Back
-              </button>
-              <button type="submit" class="btn btn-mantis">Login</button>
-            </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              required
+            />
           </div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
         </form>
-        <p id="login-feedback" class="mt-3 text-center"></p>
       </div>
     </div>
-
     <!-- Popup Modal -->
     <div id="dish-popup" class="popup-overlay" style="display: none">
       <div class="popup-content">
