@@ -17,7 +17,6 @@
 
 html,
 body {
-  height: 100%;
   background-color: var(--ghost-white);
   color: var(--prussian-blue);
   line-height: 1.6;
@@ -34,7 +33,7 @@ p {
 }
 
 body.dark-mode {
-  background-color: #121212;
+  background-color: #202020;
   color: #f1f1f1;
 }
 
@@ -52,6 +51,11 @@ body.dark-mode {
 .dark-mode .btn-outline-light {
   border-color: #f1f1f1;
 }
+
+.dark-mode .dish-container {
+  border: 1px solid #fff;
+}
+
 @media (max-width: 1024px) {
   h1 {
     font-size: 28px;
@@ -87,34 +91,130 @@ body.dark-mode {
 }
 
 /* HEADER & NAVBAR */
-#header,
-.navbar-custom {
-  background-color: var(--prussian-blue) !important;
-}
-
-.navbar-custom .navbar-brand,
-.navbar-custom .nav-link {
-  color: var(--ghost-white) !important;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-  color: var(--mantis) !important;
-}
-
-.navbar-toggler {
-  border-color: var(--ghost-white) !important;
-}
-
-.navbar-toggler-icon {
-  filter: invert(1);
-}
-
+/* Общие стили */
 .logo {
   height: 40px;
   width: auto;
+}
+
+#header {
+  background-color: var(--prussian-blue);
+}
+
+/* Скрываем sidebar toggle на маленьких экранах */
+@media (max-width: 575.98px) {
+  #sidebar-toggle {
+    display: none !important;
+  }
+}
+
+/* Полноэкранное мобильное меню */
+@media (max-width: 991.98px) {
+  .logo-con {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  /* Само меню занимает весь экран */
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--prussian-blue); /* Темный фон */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  /* Кнопка закрытия */
+  .navbar-collapse::before {
+    content: "✕";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  /* Вертикальное расположение ссылок */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+    padding: 1rem;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+  }
+
+  /* Кнопки в мобильном меню */
+  .navbar-nav .btn {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  /* Разделитель между навигацией и кнопками */
+  .navbar-nav + .navbar-nav {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    /* border-top: 1px solid rgba(255, 255, 255, 0.2); */
+  }
+  #logout-btn {
+    display: none !important;
+  }
+}
+
+/* Стили для больших экранов */
+@media (min-width: 992px) {
+  /* Горизонтальное меню */
+  .navbar-nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+
+  /* Скрываем hamburger на больших экранах */
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Стиль для hamburger кнопки */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Анимация появления меню */
+.navbar-collapse.collapsing,
+.navbar-collapse.show {
+  transition: all 0.3s ease;
 }
 
 main section {
@@ -123,7 +223,7 @@ main section {
   justify-content: space-between;
   gap: 2rem;
   padding: 3rem 5%;
-  min-height: 80vh;
+  /* min-height: 80vh; */
 }
 
 .food-image {
@@ -293,7 +393,7 @@ main section {
 }
 
 .dark-mode .dish-container {
-  background-color: #202020;
+  background-color: #303030;
   padding: 30px 40px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);

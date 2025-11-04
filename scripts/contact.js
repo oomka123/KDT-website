@@ -1,50 +1,61 @@
 $(document).ready(function () {
-  let hideTimeout;
-
-  $("#user-btn").on("mouseenter", function () {
-    clearTimeout(hideTimeout); // отменяем таймер, если пользователь вернулся
-    $("#logout-btn").fadeIn(150);
-  });
-
-  $("#user-container").on("mouseleave", function () {
-    hideTimeout = setTimeout(() => {
-      $("#logout-btn").fadeOut(300);
-    }, 1000); // ждёт 2 секунды после ухода курсора
-  });
-
-  // Быстрый debug-индикатор
-  console.log("contact.js loaded");
-
+  // === Элементы ===
   const loginPopup = $("#login-popup");
-  const loginBtn = $("#login-btn");
-  const closePopup = $(".popup-close");
-  const loginForm = $("#login-form");
+  const signupPopup = $("#signup-popup");
+  const profilePopup = $("#profile-popup");
   const loginContainer = $("#login-container");
   const userContainer = $("#user-container");
   const userNick = $("#user-nick");
   const logoutBtn = $("#logout-btn");
 
-  // Покажем, какие элементы найдены
-  console.log("selectors found:", {
-    loginBtn: loginBtn.length,
-    loginPopup: loginPopup.length,
-    closePopup: closePopup.length,
-    loginForm: loginForm.length,
-    loginContainer: loginContainer.length,
-    userContainer: userContainer.length,
-    userNick: userNick.length,
-    logoutBtn: logoutBtn.length,
+  let hideTimeout;
+
+  // === Hover для показа Logout ===
+  $("#user-btn").on("mouseenter", function () {
+    clearTimeout(hideTimeout);
+    logoutBtn.fadeIn(150);
   });
 
-  if (!loginPopup.length)
-    console.warn("Warning: #login-popup not found in DOM");
-  if (!loginBtn.length) console.warn("Warning: #login-btn not found in DOM");
+  userContainer.on("mouseleave", function () {
+    hideTimeout = setTimeout(() => {
+      logoutBtn.fadeOut(300);
+    }, 1000);
+  });
+
+  // === Получение всех пользователей ===
+  function getAllUsers() {
+    const users = localStorage.getItem("users");
+    return users ? JSON.parse(users) : [];
+  }
+
+  // === Сохранение пользователя ===
+  function saveUser(email, nickname, password) {
+    const users = getAllUsers();
+    users.push({ email, nickname, password });
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
+  // === Поиск пользователя по email ===
+  function findUserByEmail(email) {
+    const users = getAllUsers();
+    return users.find((u) => u.email === email);
+  }
+
+  // === Показать сообщение ===
+  function showMessage(elementId, message, type) {
+    const el = $(elementId);
+    el.removeClass("error-message success-message");
+    el.addClass(type === "error" ? "error-message" : "success-message");
+    el.text(message).fadeIn(200);
+    setTimeout(() => el.fadeOut(200), 3000);
+  }
 
   // === Обновление статуса ===
   function updateLoginStatus() {
-    const nick = localStorage.getItem("nickname");
-    if (nick) {
-      if (userNick.length) userNick.text(nick);
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+      const user = JSON.parse(currentUser);
+      userNick.text(user.nickname);
       loginContainer.hide();
       userContainer.show();
     } else {
@@ -53,86 +64,173 @@ $(document).ready(function () {
     }
   }
 
+  // === Проверка при загрузке ===
   updateLoginStatus();
 
-  // === Popup при нажатии на ник ===
-  $(document).on("click", "#user-btn", function () {
-    const nickname = localStorage.getItem("nickname") || "(not set)";
-    const password = localStorage.getItem("password") || "(not set)";
-
-    $("#profile-nick").text(nickname);
-    $("#profile-pass").text(password);
-
-    $("#profile-popup").fadeIn(200);
-  });
-
-  // === Закрытие popup ===
-  $(document).on("click", "#profile-popup .popup-close", function () {
-    $("#profile-popup").fadeOut(200);
-  });
-
-  // Закрыть по клику на фон
-  $(document).on("click", function (e) {
-    if ($(e.target).is("#profile-popup")) {
-      $("#profile-popup").fadeOut(200);
-    }
-  });
-
-  // === Открытие / Закрытие popup ===
-  // используем делегированные обработчики, чтобы сработало в любом случае
+  // === Открытие Login Popup ===
   $(document).on("click", "#login-btn", function () {
-    if (!loginPopup.length) return;
     loginPopup.fadeIn(200);
+    $("#auth-message").hide();
   });
 
-  $(document).on("click", ".popup-close", function () {
-    if (!loginPopup.length) return;
-    loginPopup.fadeOut(200);
+  // === Переключение на Sign Up ===
+  $(document).on("click", "#switch-to-signup", function (e) {
+    e.preventDefault();
+    loginPopup.fadeOut(200, function () {
+      signupPopup.fadeIn(200);
+    });
+    $("#signup-message").hide();
   });
 
-  // Закрыть по клику на фон (целевой элемент — сам #login-popup)
-  $(document).on("click", function (e) {
-    if (!loginPopup.length) return;
-    if ($(e.target).is("#login-popup")) {
-      loginPopup.fadeOut(200);
+  // === Переключение на Login ===
+  $(document).on("click", "#switch-to-login", function (e) {
+    e.preventDefault();
+    signupPopup.fadeOut(200, function () {
+      loginPopup.fadeIn(200);
+    });
+    $("#auth-message").hide();
+  });
+
+  // === Регистрация ===
+  $(document).on("submit", "#signup-form", function (e) {
+    e.preventDefault();
+
+    const email = $("#signup-email").val().trim();
+    const nickname = $("#signup-nickname").val().trim();
+    const password = $("#signup-password").val().trim();
+
+    // Валидация
+    if (nickname.length < 3) {
+      showMessage(
+        "#signup-message",
+        "Nickname must be at least 3 characters.",
+        "error"
+      );
+      return;
     }
+    if (password.length < 6) {
+      showMessage(
+        "#signup-message",
+        "Password must be at least 6 characters.",
+        "error"
+      );
+      return;
+    }
+
+    // Проверка существующего аккаунта
+    if (findUserByEmail(email)) {
+      showMessage(
+        "#signup-message",
+        "Such an account already exists, log in to it.",
+        "error"
+      );
+      return;
+    }
+
+    // Сохранение пользователя
+    saveUser(email, nickname, password);
+    localStorage.setItem(
+      "currentUser",
+      JSON.stringify({ email, nickname, password })
+    );
+
+    // Успешная регистрация
+    showMessage("#signup-message", "Account created successfully!", "success");
+
+    setTimeout(() => {
+      signupPopup.fadeOut(200);
+      $("#signup-form")[0].reset();
+      updateLoginStatus();
+    }, 1500);
   });
 
-  // === Логин ===
   // === Логин ===
   $(document).on("submit", "#login-form", function (e) {
     e.preventDefault();
 
-    const nickname = $("#login-nickname").val().trim();
-    const password = $("#password").val().trim();
+    const email = $("#login-email").val().trim();
+    const password = $("#login-password").val().trim();
 
-    console.log("Attempt login with:", {
-      nickname,
-      passwordLength: password.length,
-    });
+    const user = findUserByEmail(email);
 
-    if (nickname.length < 3) {
-      alert("Nickname must be at least 3 characters.");
-      return;
-    }
-    if (password.length < 6) {
-      alert("Password must be at least 6 characters.");
+    if (!user) {
+      showMessage(
+        "#auth-message",
+        "Email not found. Please sign up first.",
+        "error"
+      );
       return;
     }
 
-    localStorage.setItem("nickname", nickname);
-    localStorage.setItem("password", password);
+    if (user.password !== password) {
+      showMessage(
+        "#auth-message",
+        "Incorrect password. Please try again.",
+        "error"
+      );
+      return;
+    }
 
-    if ($("#login-popup").length) $("#login-popup").fadeOut(200);
-    if ($("#login-form").length) $("#login-form").trigger("reset");
+    // Успешный вход
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    showMessage("#auth-message", "Login successful!", "success");
 
+    setTimeout(() => {
+      loginPopup.fadeOut(200);
+      $("#login-form")[0].reset();
+      updateLoginStatus();
+    }, 1500);
+  });
+
+  // === Открытие профиля ===
+  $(document).on("click", "#user-btn", function () {
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) return;
+
+    const user = JSON.parse(currentUser);
+    $("#profile-nick").text(user.nickname);
+    $("#profile-email").text(user.email);
+    $("#profile-pass").text("••••••••").data("password", user.password);
+
+    profilePopup.fadeIn(200);
+  });
+
+  // === Показать/Скрыть пароль ===
+  $(document).on("click", "#toggle-pass", function () {
+    const passField = $("#profile-pass");
+    const isHidden = passField.text() === "••••••••";
+
+    if (isHidden) {
+      passField.text(passField.data("password"));
+      $(this).text("🙈");
+    } else {
+      passField.text("••••••••");
+      $(this).text("👁️");
+    }
+  });
+
+  // === Logout из профиля ===
+  $(document).on("click", "#profile-logout", function () {
+    localStorage.removeItem("currentUser");
+    profilePopup.fadeOut(200);
     updateLoginStatus();
   });
 
-  // === Logout ===
+  // === Logout из хедера ===
   $(document).on("click", "#logout-btn", function () {
-    localStorage.removeItem("nickname");
-    localStorage.removeItem("password");
+    localStorage.removeItem("currentUser");
     updateLoginStatus();
+  });
+
+  // === Закрытие всех popup ===
+  $(document).on("click", ".popup-close", function () {
+    $(this).closest(".popup-overlay").fadeOut(200);
+  });
+
+  // === Закрытие по клику на overlay ===
+  $(document).on("click", ".popup-overlay", function (e) {
+    if ($(e.target).is(".popup-overlay")) {
+      $(this).fadeOut(200);
+    }
   });
 });

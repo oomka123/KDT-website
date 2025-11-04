@@ -17,149 +17,131 @@
 
 /* HEADING */
 
-.navbar-custom {
-  background-color: var(--prussian-blue);
+/* Общие стили */
+.logo {
+  height: 40px;
+  width: auto;
 }
 
-.navbar-custom .navbar-brand,
-.navbar-custom .nav-link {
-  color: var(--ghost-white) !important;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* .nav-link {
+  font-size: 48px;
+} */
+
+/* Скрываем sidebar toggle на маленьких экранах */
+@media (max-width: 575.98px) {
+  #sidebar-toggle {
+    display: none !important;
+  }
 }
 
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-  color: var(--mantis) !important;
+/* Полноэкранное мобильное меню */
+@media (max-width: 991.98px) {
+  /* Само меню занимает весь экран */
+  .logo-con {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--prussian-blue); /* Темный фон */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  /* Кнопка закрытия */
+  .navbar-collapse::before {
+    content: "✕";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  /* Вертикальное расположение ссылок */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.5rem !important;
+    padding: 1rem !important;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+  }
+
+  /* Кнопки в мобильном меню */
+  .navbar-nav .btn {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  /* Разделитель между навигацией и кнопками */
+  .navbar-nav + .navbar-nav {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    /* border-top: 1px solid rgba(255, 255, 255, 0.2); */
+  }
+  #logout-btn {
+    display: none !important;
+  }
 }
 
+/* Стили для больших экранов */
+@media (min-width: 992px) {
+  /* Горизонтальное меню */
+  .navbar-nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+
+  /* Скрываем hamburger на больших экранах */
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Стиль для hamburger кнопки */
 .navbar-toggler {
-  border-color: var(--ghost-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
 }
 
 .navbar-toggler-icon {
-  filter: invert(1);
-}
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0b3954;
-  padding: 1rem 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.nav {
-  background-color: #0b3954;
-  padding: 0.5rem 1rem;
+/* Анимация появления меню */
+.navbar-collapse.collapsing,
+.navbar-collapse.show {
+  transition: all 0.3s ease;
 }
-
-.nav-link {
-  text-decoration: none;
-  color: #f7f7f7;
-  align-items: center;
-  margin-left: 10px;
-  padding: 5px 10px;
-}
-
-.nav-link:link,
-.nav-link:visited {
-  display: inline-block;
-  font-weight: 500;
-  font-size: 18px;
-  transition: all 0.3s;
-}
-
-.nav-link:hover,
-.nav-link:active {
-  color: #535353;
-}
-
-.nav-link.nav-link-bor:link,
-.nav-link.nav-link-bor:visited {
-  padding: 12px 24px;
-  border-radius: 9px;
-  color: #fff;
-  background-color: #214d6d;
-}
-
-.nav-link.nav-link-bor:hover,
-.nav-link.nav-link-bor:active {
-  background-color: #1c435e;
-}*/
-
-.logo {
-  height: 40px;
-}
-
-/* ---------------- MAIN ----------------- */
-
-/* ------ SECTION ABOUT US ------- */
-
-/* .about-us-section {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.about-us-relative {
-  position: relative;
-}
-
-.about-photo-img {
-  width: 100%;
-  display: block;
-}
-
-.about-us-content {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.about-us-content h1 {
-  font-size: 48px;
-  font-weight: 600;
-  color: #0b3954;
-} */
-
-/* ------ SECTION OUR ---------- */
-
-/* .our-grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.our-text-left {
-  padding-left: 24px;
-}
-
-.our-h2 {
-  font-size: 48px;
-  font-weight: 300;
-  margin-bottom: 24px;
-}
-
-.our-img-box img {
-  width: 100%;
-  display: block;
-}
-
-#our-img-box-2 {
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-
-.our-p {
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgb(58, 58, 58);
-} */
 
 /* -------- SECTION OUR TEAM --------- */
 
@@ -169,153 +151,6 @@
 .hover-scale:hover {
   transform: scale(1.05);
 }
-
-/* .our-team-section {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.our-team {
-  position: relative;
-  min-height: 630px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  overflow: hidden;
-}
-
-.our-team-content {
-  max-width: 400px;
-}
-
-.our-team-img {
-  height: 200px;
-  position: absolute;
-  transition: transform 0.3s ease-in;
-}
-
-.our-team-img:hover {
-  transform: scale(1.05);
-  transition: all 0.3s;
-}
-
-#our-team-img1 {
-  bottom: 50%;
-  right: 75%;
-  height: 250px;
-}
-
-#our-team-img2 {
-  top: 60%;
-  left: 15%;
-  height: 170px;
-}
-
-#our-team-img3 {
-  top: 55%;
-  left: 77%;
-  height: 220px;
-}
-
-#our-team-img4 {
-  top: 10%;
-  right: 13%;
-  height: 170px;
-}
-
-#our-team-img5 {
-  top: 82%;
-  right: 32%;
-  height: 175px;
-}
-
-.our-team-h2 {
-  font-size: 48px;
-  font-weight: 300;
-  margin-bottom: 24px;
-}
-
-.our-team-p {
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgb(90, 90, 90);
-  margin-bottom: 24px;
-}
-
-.our-team-content {
-  text-align: center;
-  justify-content: center;
-}
-
-.our-team-link:link,
-.our-team-link:visited {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.6);
-  transition: color 0.3s ease;
-}
-
-.our-team-link:hover,
-.our-team-link:active {
-  color: rgba(0, 0, 0, 1);
-}
-
-.heading-primary {
-  font-size: 48px;
-  font-weight: 600;
-} */
-
-/* -------- SECTION GALLERY --------- */
-
-/*.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}*/
-/*.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.gallery-item:hover img {
-  transform: scale(1.1);
-} */
-
-/*.caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .caption {
-  opacity: 1;
-}*/
-
-/* Responsive layout */
-/* @media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-}  */
 
 /*  -------------- FOOTER ---------------- */
 .grid {
@@ -503,7 +338,7 @@
 } */
 /* 🌙 Dark Mode Styles for About Us Page */
 .dark-mode {
-  background-color: #121212;
+  background-color: #303030;
   color: #e8eef6;
 }
 
@@ -543,7 +378,7 @@
 
 /* Main Content Sections */
 .dark-mode section {
-  background-color: #121212;
+  background-color: #303030;
   color: #e8eef6;
 }
 
@@ -564,7 +399,7 @@
 
 /* Our Team Section */
 .dark-mode .bg-light {
-  background-color: #1a1a1a !important;
+  background-color: #262626 !important;
   color: #e8eef6 !important;
 }
 
@@ -633,7 +468,7 @@
   transition: transform 0.3s ease;
 }
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   header {
     flex-direction: column;
     align-items: center;
@@ -647,7 +482,7 @@
   .navbar-collapse {
     width: 100%;
   }
-}
+} */
 
 .lazy-img {
   filter: blur(20px);

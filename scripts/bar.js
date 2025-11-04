@@ -1,7 +1,8 @@
-$(window).on("scroll", function () {
-  let scrollTop = $(window).scrollTop();
-  let docHeight = $(document).height() - $(window).height();
+window.addEventListener("scroll", function () {
+  let scrollTop = window.scrollY;
+  let docHeight = document.documentElement.scrollHeight - window.innerHeight;
   let scrollPercent = Math.round((scrollTop / docHeight) * 100);
 
-  $("#scroll-progress").css("width", scrollPercent + "%");
+  const progress = document.getElementById("scroll-progress");
+  if (progress) progress.style.width = scrollPercent + "%";
 });

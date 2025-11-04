@@ -42,30 +42,33 @@
     <script defer src="scripts/popup.js"></script>
     <script defer src="scripts/sidebar.js"></script>
     <script defer src="scripts/bar.js"></script>
+    <script defer src="scripts/header-close.js"></script>
   </head>
   <body>
     <div class="container-fluid p-0">
       <!-- HEADER -->
-      <header
-        id="header"
-        class="d-flex justify-content-between align-items-center flex-wrap p-3 p-sm-2 p-lg-4 bg-light"
-      >
-        <!-- Left: logo + sidebar toggle -->
-        <div class="d-flex align-items-center gap-3 ms-sm-2 ms-lg-4">
-          <img src="./images/logo.png" alt="KDT Logo" class="logo" />
-          <button
-            id="sidebar-toggle"
-            class="btn btn-outline-light ms-sm-2 ms-lg-3 d-none d-md-inline"
-          >
-            ☰
-          </button>
-        </div>
-        <!-- Right: navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w-auto">
-          <div
-            class="container-fluid d-flex flex-column flex-lg-row align-items-center p-0"
-          >
-            <!-- Hamburger button -->
+      <header id="header" class="bg-dark text-light p-3 p-sm-2 p-lg-4">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
+        >
+          <!-- Левая часть: Logo + Sidebar Toggle -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="../index.html" class="logo-link">
+              <img src="../images/logo.png" alt="KUIZINE logo" class="logo" />
+            </a>
+
+            <!-- Sidebar toggle (только для экранов >= lg) -->
+            <button
+              id="sidebar-toggle"
+              class="btn btn-outline-light ms-2 d-none d-lg-block"
+            >
+              ☰
+            </button>
+          </div>
+
+          <!-- Правая часть: Navigation + Hamburger -->
+          <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <!-- Hamburger (только для экранов < lg) -->
             <button
               class="navbar-toggler"
               type="button"
@@ -77,13 +80,11 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Navbar links -->
-            <div
-              class="collapse navbar-collapse justify-content-center"
-              id="navbarNav"
-            >
-              <!-- Первая группа -->
-              <ul class="navbar-nav text-center me-4">
+
+            <!-- Collapsible Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <!-- Основная навигация -->
+              <ul class="navbar-nav me-lg-4">
                 <li class="nav-item">
                   <a class="nav-link active" href="#">Home</a>
                 </li>
@@ -95,55 +96,38 @@
                 </li>
               </ul>
 
-              <!-- Вторая группа -->
-              <ul class="navbar-nav text-center">
-                <!-- Login button -->
+              <!-- Кнопки действий -->
+              <ul class="navbar-nav d-flex flex-row gap-2">
                 <li class="nav-item" id="login-container">
-                  <button id="login-btn" class="btn btn-outline-light ms-1">
+                  <button id="login-btn" class="btn btn-outline-light">
                     Login
                   </button>
                 </li>
-
-                <!-- User nickname + hover logout -->
-                <li
-                  class="nav-item"
-                  id="user-container"
-                  style="display: none; position: relative"
-                >
-                  <button id="user-btn" class="btn btn-outline-light ms-1">
+                <li class="nav-item" id="user-container" style="display: none">
+                  <button id="user-btn" class="btn btn-outline-light">
                     <span id="user-nick"></span>
                   </button>
-                  <button id="logout-btn">Logout</button>
                 </li>
-
                 <li class="nav-item">
-                  <button id="theme-toggle" class="btn btn-outline-light ms-1">
+                  <button
+                    id="theme-toggle"
+                    class="btn btn-outline-light ms-lg-1"
+                  >
                     🌙
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button id="musicBtn" class="btn btn-outline-light ms-1">
+                  <audio id="bgMusic" src="audio/hello.mp3" loop></audio>
+                  <button id="musicBtn" class="btn btn-outline-light ms-lg-1">
                     🔇
                   </button>
-                  <audio id="bgMusic" src="./audio/hello.mp3" loop></audio>
                 </li>
               </ul>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </header>
 
-      <!-- Profile Popup -->
-      <div id="profile-popup" class="popup-overlay" style="display: none">
-        <div class="popup-content">
-          <span class="popup-close">&times;</span>
-          <h3>User Info</h3>
-          <p><strong>Nickname:</strong> <span id="profile-nick"></span></p>
-          <p><strong>Password:</strong> <span id="profile-pass"></span></p>
-        </div>
-      </div>
-
-      <!-- SIDEBAR + MAIN -->
       <!-- SIDEBAR -->
       <aside class="sidebar-overlay bg-light p-4 shadow">
         <!-- Close Button -->
@@ -162,19 +146,6 @@
       </aside>
 
       <div class="row g-0">
-        <!-- SIDEBAR -->
-        <!-- <aside
-          class="col-lg-2 col-md-3 col-sm-12 bg-light p-3 p-sm-2 p-lg-4 sidebar"
-        >
-          <h3 class="mb-3 mb-lg-4">Quick Links</h3>
-          <ul class="list-unstyled ps-0 ms-1 ms-md-2">
-            <li class="mb-2"><a href="#food-image">Main</a></li>
-            <li class="mb-2"><a href="#card-section">Popular Dishes</a></li>
-            <li class="mb-2"><a href="#cta">Sign Up</a></li>
-            <li><a href="#footer">Footer</a></li>
-          </ul>
-        </aside> -->
-
         <!-- MAIN CONTENT -->
         <main class="col-lg-10 col-md-9 col-sm-12 p-4">
           <!-- Section 1 (Two Columns) -->
@@ -456,7 +427,15 @@
         <div class="container">
           <div class="row gy-3">
             <div class="col-lg-4 mb-3 text-center text-lg-start">
-              <img src="./images/logo.png" alt="Logo" class="logo mb-3" />
+              <div class="d-flex align-items-center gap-2 logo-con">
+                <a href="../index.html" class="logo-link">
+                  <img
+                    src="../images/logo.png"
+                    alt="KUIZINE logo"
+                    class="logo"
+                  />
+                </a>
+              </div>
               <ul class="list-inline mb-3">
                 <li class="list-inline-item mx-2">
                   <a class="text-light" href="https://www.instagram.com/"
@@ -516,28 +495,103 @@
     <div id="login-popup" class="popup-overlay" style="display: none">
       <div class="popup-content">
         <span class="popup-close">&times;</span>
+
+        <!-- Error/Success Messages -->
+        <div id="auth-message" style="display: none"></div>
+
         <form id="login-form">
           <h3>Login</h3>
           <div class="mb-3">
-            <label for="nickname" class="form-label">Nickname</label>
+            <label for="login-email" class="form-label">Email</label>
             <input
-              type="text"
-              id="login-nickname"
+              type="email"
+              id="login-email"
               class="form-control"
+              placeholder="your@email.com"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="login-password" class="form-label">Password</label>
             <input
               type="password"
-              id="password"
+              id="login-password"
               class="form-control"
+              placeholder="Enter password"
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+          <div class="auth-switch">
+            Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a>
+          </div>
         </form>
+      </div>
+    </div>
+
+    <!-- Signup Popup -->
+    <div id="signup-popup" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+
+        <!-- Error/Success Messages -->
+        <div id="signup-message" style="display: none"></div>
+
+        <form id="signup-form">
+          <h3>Sign Up</h3>
+          <div class="mb-3">
+            <label for="signup-email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="signup-email"
+              class="form-control"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="signup-nickname" class="form-label">Nickname</label>
+            <input
+              type="text"
+              id="signup-nickname"
+              class="form-control"
+              placeholder="Your nickname"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="signup-password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="signup-password"
+              class="form-control"
+              placeholder="Min. 6 characters"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success w-100">Sign Up</button>
+          <div class="auth-switch">
+            Already have an account? <a href="#" id="switch-to-login">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Profile Info Popup -->
+    <div id="profile-popup" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <h3>User Profile</h3>
+        <div class="profile-info">
+          <p><strong>Nickname:</strong> <span id="profile-nick"></span></p>
+          <p><strong>Email:</strong> <span id="profile-email"></span></p>
+          <p class="password-field">
+            <strong>Password:</strong>
+            <span id="profile-pass">••••••••</span>
+            <span class="toggle-password" id="toggle-pass">👁️</span>
+          </p>
+        </div>
+        <button id="profile-logout" class="btn btn-danger w-100">Logout</button>
       </div>
     </div>
     <!-- Popup Modal -->
