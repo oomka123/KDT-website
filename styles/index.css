@@ -994,10 +994,6 @@ main {
   border-color: var(--ghost-white) !important;
 }
 
-.navbar-toggler-icon {
-  filter: invert(1);
-}
-
 .logo {
   height: 40px;
   width: auto;
